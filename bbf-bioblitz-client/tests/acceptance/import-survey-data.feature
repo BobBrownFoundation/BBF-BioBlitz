@@ -2,13 +2,9 @@ Feature: Import Survey data via spreadsheets
     As an admin I want to be able to import the various survey, and location
     data via uploading one or more spreadsheets.
 
-        # comments (fields = applyCamelCaseThroughOut
-        # comments entitiy = ApplyCamelCaseThroughOut
-
     Scenario: Import survey data
     	When I import the following spreadsheet:
-        # comments (s/s name= Team )
-	---
+	      ---
       	 "Team", "Description"
       	 "Survey Leaders", "Leads a group of participants in a survey"
       	 "Organisers", "Part of team that organises BioBlitz event"
@@ -16,43 +12,56 @@ Feature: Import Survey data via spreadsheets
         ---
 
     	And I import the following spreadsheet:
-        # comments (s/s name= Role )
-	---
+	      ---
       	 "Role", "Description"
       	 "Survey Leader", "Leads survey"
       	 "Survey Co-lead", "2nd survey leader"
       	 "First Aid Officer", "meets criteria for first aid"
-	 "Driver", "Drives a transport vehicle"
-	 "Kitchen Help", "Helps in the kitchen"
-        ---
-
-    	And I import the following spreadsheet:
-        # comments (s/s name= Survey )
-        # comments Note: survey names need to be unique - e.g. even if Birds01; Birds 02 etc
-        # comments (NF to provide - what other specs does he have?)
-        ---
-      	 "Survey", "Description"
-      	 "Birds", "Bird watching"
-        ---
-
-    	And I import the following spreadsheet:
-        # comments (s/s name= Timeslot)
-        # comments (create/enter actual values/dates
-        ---
-      	 "TimeslotName", "Start", "Duration (mins)"
-      	 "Monday Morning", "20/11/2017 9:00:00", "240"
-        ---
-
-    	And I import the following spreadsheet:
-        # comments (s/s name= "Participant" )
-        # comments (s/s name= MS consider how  gravity forms  handle IDs - numeric?)
-        ---
-      	 "ID", "ParticipantName", "Teams", "Capable Roles"
-      	 "001", "Michael Sharman", "Organiser", "Volunteer, Kitchen Hand"
+	       "Driver", "Drives a transport vehicle"
+	       "Kitchen Help", "Helps in the kitchen"
+         "Medical Officer", "Does medical stuff"
+         "Volunteer", "General busy body"
         ---
 
       And I import the following spreadsheet:
-        # comments (s/s name= "Location", )
+        ---
+      	 "Participant:Id", "FirstName", "LastName", "Teams", "Capable Roles"
+      	 "1", "Michael", "Sharman", "Organiser", "Volunteer, Kitchen Hand"
+         "2", "Dan", "Panek", "Organiser", "Volunteer, Kitchen Hand, Bio Security"
+         "3", "Nicole", "Anderson", "Organiser", "Medical Officer, Kitchen Hand, Bio Security"
+         "4", "Craig", "Broadfield", "Survey Leaders", "Survey Leader"
+        ---
+
+    	And I import the following spreadsheet:
+        ---
+      	 "Survey", "Description"
+      	 "Survey_1", "Survey 1 description"
+         "Survey_2", "Survey 2 description"
+         "Survey_3", "Survey 3 description"
+         "Survey_4", "Survey 4 description"
+         "Survey_5", "Survey 5 description"
+        ---
+
+    	And I import the following spreadsheet:
+        ---
+      	 "TimeslotName", "Start", "Duration (mins)"
+         "Monday Dawn", "20/11/2017 6:00", "180"
+      	 "Monday Morning", "20/11/2017 9:00:00", "240"
+         "Monday Afternoon", "20/11/2017 13:00:00", "240"
+         "Monday Evening", "20/11/2017 19:00:00", "240"
+         "Tuesday Dawn", "21/11/2017 6:00", "180"
+      	 "Tuesday Morning", "21/11/2017 9:00:00", "240"
+         "Tuesday Afternoon", "21/11/2017 13:00:00", "240"
+         "Tuesday Evening", "21/11/2017 19:00:00", "240"
+         "Wednesday Dawn", "21/11/2017 6:00", "180"
+      	 "Wednesday Morning", "21/11/2017 9:00:00", "240"
+         "Wednesday Afternoon", "21/11/2017 13:00:00", "240"
+         "Wednesday Evening", "21/11/2017 19:00:00", "240"
+         "Thursday Dawn", "21/11/2017 6:00", "180"
+      	 "Thursday Morning", "21/11/2017 9:00:00", "240"
+        ---
+
+      And I import the following spreadsheet:
         ---
       	 "LocationName", "Description"
          "Forests", "The forest survey site"
@@ -61,109 +70,133 @@ Feature: Import Survey data via spreadsheets
         ---
 
       And I import the following spreadsheet:
-        # comments (s/s name= S_Lo_TName)
         ---
-      	 "S_Lo_T", "TimeslotName", "LocationName", "NumberOfParticpants"
-      	 "Birds", "Monday Morning", "Coast", 16
+      	 "S_Lo_T", "Survey", "TimeslotName", "LocationName", "NumberOfParticpants"
+      	 "1", "Survey_1", "Monday Morning", "Coast", 16
+         "2", "Survey_2", "Monday Morning", "Forest", 16
+         "3", "Survey_3", "Monday Morning", "Plains", 16
+         "4", "Survey_1", "Monday Afernoon", "Coast", 16
+         "5", "Survey_2", "Monday Afernoon", "Forest", 16
+         "6", "Survey_3", "Monday Afernoon", "Plains", 16
+         "7", "Survey_4", "Tuesday Morning", "Coast", 16
+         "8", "Survey_5", "Tuesday Morning", "Forest", 16
+         "9", "Survey_3", "Tuesday Morning", "Plains", 16
+         "7", "Survey_1", "Tuesday Afernoon", "Coast", 16
+         "8", "Survey_2", "Tuesday Afernoon", "Forest", 16
+         "9", "Survey_3", "Tuesday Afernoon", "Plains", 16
+         "10", "Survey_4", "Wednesday Afernoon", "Coast", 16
+         "11", "Surey_5", "Wednesday Afernoon", "Forest", 16
+         "12", "Survey_3", "Wednesday Afernoon", "Plains", 16
         ---
 
     	And I import the following spreadsheet:
-        # comments (s/s name= S_Lo_TParticipants)
-        # comments (future wishlist - show required roles which are not yet filled.E.g. SurveyAssistant, FirstAid, Driver, Biosecurity
         ---
-      	 "Survey", "TimeslotName", "LocationName", "ParticipantName", "Role"
-      	 "Birds", "Monday Morning", "Coast", "Michael Sharman", "Biosecurity"
-        ---
-
-      And I import the following spreadsheet:
-        # comments (s/s name= Transport)
-        # comments (consider if vehicles have special driver requirements e.g. only Jen can Drive Bus_3?
-        ---
-      	 "VehicleName", "SeatsNumber"
-         "Bus_1", "12"
-         "Bus_2", "8"
-         "Bus_3", "8"
+      	 "S_Lo_T", "ParticipantId", "Role"
+      	 "1", "2", "Biosecurity"
+         "1", "1", "Volunteer"
+         "1", "3", "Medical Officer"
+         "2", "2", "Biosecurity"
+         "2", "1", "Volunteer"
+         "2", "3", "Medical Officer"
+         "3", "2", "Biosecurity"
+         "3", "1", "Volunteer"
+         "3", "3", "Medical Officer"
+         "4", "2", "Biosecurity"
+         "4", "1", "Volunteer"
+         "4", "3", "Medical Officer"
+         "5", "2", "Biosecurity"
+         "5", "1", "Volunteer"
+         "5", "3", "Medical Officer"
+         "6", "2", "Biosecurity"
+         "6", "1", "Volunteer"
+         "6", "3", "Medical Officer"
+         "7", "2", "Biosecurity"
+         "7", "1", "Volunteer"
+         "7", "3", "Medical Officer"
+         "8", "2", "Biosecurity"
+         "8", "1", "Volunteer"
+         "8", "3", "Medical Officer"
+         "9", "2", "Biosecurity"
+         "9", "1", "Volunteer"
+         "9", "3", "Medical Officer"
+         "10", "2", "Biosecurity"
+         "10", "1", "Volunteer"
+         "10", "3", "Medical Officer"
+         "11", "2", "Biosecurity"
+         "11", "1", "Volunteer"
+         "11", "3", "Medical Officer"
+         "12", "2", "Biosecurity"
+         "12", "1", "Volunteer"
+         "12", "3", "Medical Officer"
         ---
 
     	Then the following surveys should be created:
-        # comments (View 1 = Surveys that are available
         ---
       	 surveyName | description
-	 Survey_1 | This is a decription of Survey_1
-	 Survey_2 | This is a decription of Survey_2
-	 Survey_3 | This is a decription of Survey_3
+         "Survey_1", "Survey 1 description"
+         "Survey_2", "Survey 2 description"
+         "Survey_3", "Survey 3 description"
+         "Survey_4", "Survey 4 description"
+         "Survey_5", "Survey 5 description"
         ---
 
     	And the following survey list should be created:
-        # comments (View 2 = Shows an overview of all SurveysSLoTs and which SurveySLoTs still have places remaining available
-        # comments (ideally with interface link button to edit SurveySLoT participants list
         ---
-      	 surveyName | locationName | timeslotName | remaining
-      	 Survey_1 | Coast | Monday Morning | 5
-      	 Survey_2 | Plains | Tuesday Morning | 0
-      	 Survey_3 | Coast | Tuesday Morning | 2
-      	 Survey_4 | Forest | Tuesday Night | 0
-      	 Survey_5 | Forest | Monday Dawn | 3
+      	 S_Lo_T |surveyName | locationName | timeslotName | remaining
+         1  | "Survey_1", "Monday Morning", "Coast", 13
+         2  | "Survey_2", "Monday Morning", "Forest", 13
+         3  |  "Survey_3", "Monday Morning", "Plains", 13
+         4  | "Survey_1", "Monday Afernoon", "Coast", 13
+         5  | "Survey_2", "Monday Afernoon", "Forest", 13
+         6  | "Survey_3", "Monday Afernoon", "Plains", 13
+         7  | "Survey_4", "Tuesday Morning", "Coast", 13
+         8  | "Survey_5", "Tuesday Morning", "Forest", 13
+         9  | "Survey_3", "Tuesday Morning", "Plains", 13
+         10 | "Survey_1", "Tuesday Afernoon", "Coast", 13
+         11 | "Survey_2", "Tuesday Afernoon", "Forest", 13
+         12 | "Survey_3", "Tuesday Afernoon", "Plains", 13
+         13 | "Survey_4", "Wednesday Afernoon", "Coast", 13
+         14 | "Survey_5", "Wednesday Afernoon", "Forest", 13
+         15 | "Survey_3", "Wednesday Afernoon", "Plains", 13
         ---
 
     	And the following participant assignments should be created:
-        # comments (View 3 = Shows a list of all SurveysSLoTs, the participants on them and roles selected
-        # comments (Final user interface will show this table, allow filter on columns and (if poss.) click on table cell data items to go to that record
-        # comments (e.g.1 I click on SurveySlot1 and see a list of the particpants on it
-        # comments (e.g.2 I click on a particpants and see a list of the surveyslots they are on
-        # TODO: comments (create an ID to replace 3way combined key S-Lo-T
         ---
-      	 survey | location | timeslot | participant | role
-      	 Survey_1 | Coast | Monday Morning | Michael Sharman | Driver
-      	 Survey_1 | Coast | Monday Morning | Michael Sharman | Driver
-      	 Survey_1 | Coast | Monday Morning | Michael Sharman | Driver
-      	 Survey_1 | Coast | Monday Morning | Michael Sharman | Driver
-      	 Survey_2 | Plains | Tuesday Morning | 0
-      	 Survey_3 | Coast | Tuesday Morning | 2
-      	 Survey_4 | Forest | Tuesday Night | 0
-      	 Survey_5 | Forest | Monday Dawn | 3
+      	 surveyLocationTimeId | participantFullName | role
+         "1", "Dan Panek", "Biosecurity"
+         "1", "Michael Sharman", "Volunteer"
+         "1", "Nicole Anderson", "Medical Officer"
+         "2", "Dan Panek", "Biosecurity"
+         "2", "Michael Sharman", "Volunteer"
+         "2", "Nicole Anderson", "Medical Officer"
+         "3", "Dan Panek", "Biosecurity"
+         "3", "Michael Sharman", "Volunteer"
+         "3", "Nicole Anderson", "Medical Officer"
+         "4", "Dan Panek", "Biosecurity"
+         "4", "Michael Sharman", "Volunteer"
+         "4", "Nicole Anderson", "Medical Officer"
+         "5", "Dan Panek", "Biosecurity"
+         "5", "Michael Sharman", "Volunteer"
+         "5", "Nicole Anderson", "Medical Officer"
+         "6", "Dan Panek", "Biosecurity"
+         "6", "Michael Sharman", "Volunteer"
+         "6", "Nicole Anderson", "Medical Officer"
+         "7", "Dan Panek", "Biosecurity"
+         "7", "Michael Sharman", "Volunteer"
+         "7", "Nicole Anderson", "Medical Officer"
+         "8", "Dan Panek", "Biosecurity"
+         "8", "Michael Sharman", "Volunteer"
+         "8", "Nicole Anderson", "Medical Officer"
+         "9", "Dan Panek", "Biosecurity"
+         "9", "Michael Sharman", "Volunteer"
+         "9", "Nicole Anderson", "Medical Officer"
+         "10", "Dan Panek", "Biosecurity"
+         "10", "Michael Sharman", "Volunteer"
+         "10", "Nicole Anderson", "Medical Officer"
+         "11", "Dan Panek", "Biosecurity"
+         "11", "Michael Sharman", "Volunteer"
+         "11", "Nicole Anderson", "Medical Officer"
+         "12", "Dan Panek", "Biosecurity"
+         "12", "Michael Sharman", "Volunteer"
+         "12", "Nicole Anderson", "Medical Officer"
         ---
-
-    	# And the following transport list should be created:
-        # WOULDBENICE TODO: have this transport view/capability > By Lo_T (Location AND Timeslot
-        ---
-      	 vehicleName | participantName | role
-         Bus_1 | Michael Sharman | Not Driver
-         Bus_1 | Adam Sharman | Not Driver
-         Bus_1 | Adam Smith| Not Driver
-         Bus_1 | Nic Fitzman | Driver
-         Bus_2 | Daniel Panek | Driver
-         Bus_2 | Jen Web | Not Driver
-         Bus_2 | Sam Shan | Not Driver
-         Bus_2 | Amy Deeves| Not Driver
-        ---
-
-    	And the following accommodation list should be created:
-        # WOULDBENICE TODO: have this accommodation view/capability > By AccLocation/Day
-        ---
-      	 accommodationType | day | participant
-         Dorm_M1 | Thursday | Michael Sharman
-         Dorm_M2 | Thursday | Adam Sharman
-         House | Thursday | Adam Smith
-         Outside | Friday | Nic Fitzman
-         Outside | Friday | Daniel Panek
-         Dorm_F1 | Friday | Jen Web
-         Dorm_F1 | Friday | Sam Shan
-         Dorm_F1 | Friday | Amy Deeves
-        ---
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

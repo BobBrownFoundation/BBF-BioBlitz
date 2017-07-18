@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { describe, it } from 'mocha';
 import { setupModelTest } from 'ember-mocha';
-import Ember from 'ember';
+
 
 describe('Unit | Model | team', function() {
   setupModelTest('team', {
