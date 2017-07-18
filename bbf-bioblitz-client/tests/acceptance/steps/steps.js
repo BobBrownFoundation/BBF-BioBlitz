@@ -1,27 +1,32 @@
-import yadda from '../../helpers/yadda';
-import parse from 'npm:csv-parse';
+import Yadda from '../../helpers/yadda';
 
 export default function(assert) {
-  function csv_file_converter(csv, next) {
-    parse( csv, {
-      columns: true,
-      trim: true
-    }, (err,result) => {
-      if (err) {
-        throw err;
-      }
-      next(err,result);
-    } );
+
+  function csv_file( value, next ) {
+    let file = new File([value], "csv_file.csv" )
+    return next(null, file);
   }
-  var dictionary = new yadda.Dictionary()
-        .define('csv', /([^\u0000]*)/, csv_file_converter);
-  return yadda.localisation.English.library(dictionary)
+
+  var dictionary = new Yadda.Dictionary()
+        .define('csv', /([^\u0000]*)/, csv_file )
+        .define('table', /([^\u0000]*)/, Yadda.converters.table );
+
+  return Yadda.localisation.English.library(dictionary)
     .when('I import the following spreadsheet:\n$csv', function(csv, next) {
-      
-      next()
+      visit('/import');
+      andThen( () => upload( 'input', csv, csv.name ) );
+      andThen( () => next() );
     })
-    .when('I look in the folder', function(next) {
-      assert.ok(true, this.step);
+    .then('the following surveys should be created:\n$table', function(table, next){
+
+      next();
+    })
+    .then('the following survey list should be created:\n$table', function(table, next){
+
+      next();
+    })
+    .then('the following participant assignments should be created:\n$table', function(table, next){
+
       next();
     });
 }

@@ -1,1 +1,24 @@
-{{yield}}
+{{#file-dropzone name="csvImport" as |dropzone queue|}}
+  {{#if dropzone.active}}
+    {{#if dropzone.valid}}
+      Drop to upload
+    {{else}}
+      Invalid
+    {{/if}}
+  {{else if queue.files.length}}
+    Uploading {{queue.files.length}} files. ({{queue.progress}}%)
+  {{else}}
+    <h4>Upload CSV</h4>
+    <p>
+      {{#if dropzone.supported}}
+        Drag and drop CSV diles onto this area to upload them or
+      {{/if}}
+      {{#file-upload name="csvImport"
+                     accept="text/csv"
+                     multiple=true
+                     onfileadd=(action "uploadCsv")}}
+        <a id="upload-csv" tabindex=0>Import CSV</a>
+      {{/file-upload}}
+    </p>
+  {{/if}}
+{{/file-dropzone}}
