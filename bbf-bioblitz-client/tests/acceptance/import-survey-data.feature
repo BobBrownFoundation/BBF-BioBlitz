@@ -3,12 +3,12 @@ Feature: Import Survey data via spreadsheets
     data via uploading one or more spreadsheets.
 
         # comments (fields = applyCamelCaseThroughOut
-        # comments entitiy = ApplyCamelCaseThroughOut
+        # comments entity = ApplyCamelCaseThroughOut
 
     Scenario: Import survey data
     	When I import the following spreadsheet:
         # comments (s/s name= Team )
-	---
+		---
       	 "Team", "Description"
       	 "Survey Leaders", "Leads a group of participants in a survey"
       	 "Organisers", "Part of team that organises BioBlitz event"
@@ -17,13 +17,13 @@ Feature: Import Survey data via spreadsheets
 
     	And I import the following spreadsheet:
         # comments (s/s name= Role )
-	---
+		---
       	 "Role", "Description"
       	 "Survey Leader", "Leads survey"
       	 "Survey Co-lead", "2nd survey leader"
       	 "First Aid Officer", "meets criteria for first aid"
-	 "Driver", "Drives a transport vehicle"
-	 "Kitchen Help", "Helps in the kitchen"
+      	 "Driver", "Drives a transport vehicle"
+      	 "Kitchen Help", "Helps in the kitchen"
         ---
 
     	And I import the following spreadsheet:
@@ -150,6 +150,7 @@ Feature: Import Survey data via spreadsheets
          Dorm_F1 | Friday | Jen Web
          Dorm_F1 | Friday | Sam Shan
          Dorm_F1 | Friday | Amy Deeves
+		 Dorm_F1 | Friday | Amy Spills
         ---
 
 
