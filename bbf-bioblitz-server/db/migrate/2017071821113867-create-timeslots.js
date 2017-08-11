@@ -2,6 +2,17 @@ export function up(schema) {
   return schema.createTable('timeslots', table => {
     table.increments('id');
 
+    table.string('name');
+
+    table.dateTime('start')
+      .index()
+      .defaultTo('New')
+      .notNullable();
+
+    table.integer('duration')
+        .defaultTo(60)
+        .notNullable();
+
     table.timestamps();
 
     table.index('created_at');
