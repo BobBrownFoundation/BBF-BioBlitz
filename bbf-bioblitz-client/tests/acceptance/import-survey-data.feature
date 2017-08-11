@@ -44,7 +44,7 @@ Feature: Import Survey data via spreadsheets
 
     	And I import the following spreadsheet:
         ---
-      	 "TimeslotName", "Start", "Duration (mins)"
+      	 "Timeslot", "Start", "Duration"
          "Monday Dawn", "20/11/2017 6:00", "180"
       	 "Monday Morning", "20/11/2017 9:00:00", "240"
          "Monday Afternoon", "20/11/2017 13:00:00", "240"
@@ -63,7 +63,7 @@ Feature: Import Survey data via spreadsheets
 
       And I import the following spreadsheet:
         ---
-      	 "LocationName", "Description"
+      	 "Location", "Description"
          "Forests", "The forest survey site"
       	 "Plains",  "The plains survey site"
       	 "Coast",   "The coast survey site"
@@ -71,7 +71,7 @@ Feature: Import Survey data via spreadsheets
 
       And I import the following spreadsheet:
         ---
-      	 "S_Lo_T", "Survey", "TimeslotName", "LocationName", "NumberOfParticpants"
+      	 "SurveySlot:Id", "Survey", "Timeslot:Name", "Location:Name", "NumberOfParticipants"
       	 "1", "Survey_1", "Monday Morning", "Coast", 16
          "2", "Survey_2", "Monday Morning", "Forest", 16
          "3", "Survey_3", "Monday Morning", "Plains", 16

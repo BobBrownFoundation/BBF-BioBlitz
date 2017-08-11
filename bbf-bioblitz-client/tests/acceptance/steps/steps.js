@@ -1,6 +1,6 @@
 import Yadda from '../../helpers/yadda';
 
-export default function(assert) {
+export default function(/*assert*/) {
 
   function csv_file( value, next ) {
     let file = new File([value], "csv_file.csv" )
