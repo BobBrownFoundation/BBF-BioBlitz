@@ -1,5 +1,5 @@
 export function up(schema) {
-  return schema.createTable('participants', table => {
+  return schema.createTable('people', table => {
     table.increments('id');
 
     table.string('firstName')

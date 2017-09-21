@@ -25,7 +25,7 @@ Feature: Import Survey data via spreadsheets
 
       And I import the following spreadsheet:
         ---
-      	 "Participant:Id", "FirstName", "LastName", "Teams", "Capable Roles"
+      	 "Person:Id", "FirstName", "LastName", "Teams", "Capable Roles"
       	 "1", "Michael", "Sharman", "Organiser", "Volunteer, Kitchen Hand"
          "2", "Dan", "Panek", "Organiser", "Volunteer, Kitchen Hand, Bio Security"
          "3", "Nicole", "Anderson", "Organiser", "Medical Officer, Kitchen Hand, Bio Security"
@@ -71,7 +71,7 @@ Feature: Import Survey data via spreadsheets
 
       And I import the following spreadsheet:
         ---
-      	 "SurveySlot:Id", "Survey", "Timeslot:Name", "Location:Name", "NumberOfParticipants"
+      	 "SurveySlot:Id", "Survey:name", "Timeslot:name", "Location:name", "NumberOfParticipants"
       	 "1", "Survey_1", "Monday Morning", "Coast", 16
          "2", "Survey_2", "Monday Morning", "Forest", 16
          "3", "Survey_3", "Monday Morning", "Plains", 16

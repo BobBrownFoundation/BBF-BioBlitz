@@ -1,11 +1,13 @@
 import { Model } from 'lux-framework';
 
 class Role extends Model {
-  participants: {
-    model: 'participant',
-    inverse: 'capabilities',
-    through: 'roleParticipants'
-  }
+  static hasMany = {
+    people: {
+      model: 'person',
+      inverse: 'roles',
+      through: 'capability'
+    }
+  };
 }
 
 export default Role;
