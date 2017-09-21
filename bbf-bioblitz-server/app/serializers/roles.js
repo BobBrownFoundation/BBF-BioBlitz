@@ -4,7 +4,11 @@ class RolesSerializer extends Serializer {
   attributes = [
     'name',
     'description'
-  ]
+  ];
+
+  hasMany = [
+    'people'
+  ];
 }
 
 export default RolesSerializer;

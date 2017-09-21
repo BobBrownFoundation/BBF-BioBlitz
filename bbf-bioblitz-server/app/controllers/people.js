@@ -1,10 +1,10 @@
 import { Controller } from 'lux-framework';
 
-class ParticipantsController extends Controller {
+class PeopleController extends Controller {
   params = [
       'lastName',
       'firstName'
     ];
 }
 
-export default ParticipantsController;
+export default PeopleController;
