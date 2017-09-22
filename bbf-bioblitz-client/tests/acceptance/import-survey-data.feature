@@ -200,3 +200,18 @@ Feature: Import Survey data via spreadsheets
          "12", "Michael Sharman", "Volunteer"
          "12", "Nicole Anderson", "Medical Officer"
         ---
+
+    	And the following accommodation list should be created:
+        # WOULDBENICE TODO: have this accommodation view/capability > By AccLocation/Day
+        ---
+      	 accommodationType | day | participant
+         Dorm_M1 | Thursday | Michael Sharman
+         Dorm_M2 | Thursday | Adam Sharman
+         House | Thursday | Adam Smith
+         Outside | Friday | Nic Fitzman
+         Outside | Friday | Daniel Panek
+         Dorm_F1 | Friday | Jen Web
+         Dorm_F1 | Friday | Sam Shan
+         Dorm_F1 | Friday | Amy Deeves
+		     Dorm_F1 | Friday | Amy Spills
+        ---
