@@ -1,0 +1,208 @@
+SurveySlot:id,Participant:Name,Roles
+1,Nick Fitzgerald,"Survey Leader, Driver"
+1,Clare Hawkins,Survey Co-lead
+1,Michael Sharman,"Volunteer, Kitchen Hand"
+1,Frank McDermott,"First Aid Officer, Kitchen Assistant"
+1,Michael Jackson,General participant
+1,Ayton Senna,General participant
+1,Phillip Adams,General participant
+2,Greg Pitt,Survey Leader
+2,Chris Carr,Survey Co-lead
+2,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
+2,Melanie Faheedquar,"Kitchen Assistant, Driver"
+2,Nathalie Imbruglia,Bio-security/Hygiene Assistant
+2,Frank Knight,General participant
+2,Adam Bennett,General participant
+2,Sam McIntosh,General participant
+3,Rob Pergl,Survey Leader
+3,Yolanda Hanusch,Survey Co-lead
+3,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
+3,Francis McDermott,"First Aid Officer, M&E Assistant"
+3,Gaby Jung,General participant
+3,Emily Wilcox,General participant
+3,Samantha  Mannes,General participant
+4,Todd Walsh,Survey Leader
+4,Rohan Amazadeen,Survey Co-lead
+4,Jenny Webber,"Event Manager, BaseCamp Site Coordinator, Driver"
+4,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
+4,Gregory Intox,General participant
+4,Samuel Beckett,General participant
+4,Richard Desiree,General participant
+5,Peter Gell,Survey Leader
+5,Clare Hawkins,Survey Co-lead
+5,Michael Sharman,"Volunteer, Kitchen Hand"
+5,Michelle Faheed,Kitchen Assistant
+5,Frank McDermott,"First Aid Officer, Kitchen Assistant"
+5,Michael Jackson,General participant
+5,Ayton Senna,General participant
+5,Phillip Adams,General participant
+6,Richard Newport,Survey Leader
+6,Yolanda Hanusch,Survey Co-lead
+6,Emma Wasson,"Field Site Coordinator - Coast, Field Site Coordinator - Forest, Field Site Coordinator - Plains"
+6,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
+6,Francis McDermott,"First Aid Officer, M&E Assistant"
+6,Gaby Jung,General participant
+6,Emily Wilcox,General participant
+6,Samantha  Mannes,General participant
+7,Nick Fitzgerald,"Survey Leader, Driver"
+7,Rohan Amazadeen,Survey Co-lead
+7,Jenny Webber,"Event Manager, BaseCamp Site Coordinator, Driver"
+7,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
+7,Gregory Intox,General participant
+7,Samuel Beckett,General participant
+7,Richard Desiree,General participant
+8,Greg Pitt,Survey Leader
+8,Chris Carr,Survey Co-lead
+8,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
+8,Melanie Faheedquar,"Kitchen Assistant, Driver"
+8,Nathalie Imbruglia,Bio-security/Hygiene Assistant
+8,Frank Knight,General participant
+8,Adam Bennett,General participant
+8,Sam McIntosh,General participant
+9,Rob Pergl,Survey Leader
+9,Yolanda Hanusch,Survey Co-lead
+9,Michael Sharman,"Volunteer, Kitchen Hand"
+9,Frank McDermott,"First Aid Officer, Kitchen Assistant"
+9,Frank Knight,General participant
+9,Adam Bennett,General participant
+9,Sam McIntosh,General participant
+10,Todd Walsh,Survey Leader
+10,Rohan Amazadeen,Survey Co-lead
+10,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
+10,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
+10,Michael Jackson,General participant
+10,Ayton Senna,General participant
+10,Phillip Adams,General participant
+11,Peter Gell,Survey Leader
+11,Clare Hawkins,Survey Co-lead
+11,Jenny Webber,"Event Manager, BaseCamp Site Coordinator, Driver"
+11,Michelle Faheed,Kitchen Assistant
+11,Nathalie Imbruglia,Bio-security/Hygiene Assistant
+11,Gaby Jung,General participant
+11,Emily Wilcox,General participant
+11,Samantha  Mannes,General participant
+12,Richard Newport,Survey Leader
+12,Chris Carr,Survey Co-lead
+12,Emma Wasson,"Field Site Coordinator - Coast, Field Site Coordinator - Forest, Field Site Coordinator - Plains"
+12,Francis McDermott,"First Aid Officer, M&E Assistant"
+12,Frank McDermott,"First Aid Officer, Kitchen Assistant"
+12,Frank Knight,General participant
+12,Gregory Intox,General participant
+12,Samuel Beckett,General participant
+13,Nick Fitzgerald,"Survey Leader, Driver"
+13,Yolanda Hanusch,Survey Co-lead
+13,Michael Sharman,"Volunteer, Kitchen Hand"
+13,Melanie Faheedquar,"Kitchen Assistant, Driver"
+13,Adam Bennett,General participant
+13,Sam McIntosh,General participant
+13,Richard Desiree,General participant
+14,Greg Pitt,Survey Leader
+14,Rohan Amazadeen,Survey Co-lead
+14,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
+14,Michael Jackson,General participant
+14,Ayton Senna,General participant
+15,Rob Pergl,Survey Leader
+15,Tim Amazadeen,Survey Co-lead
+15,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
+15,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
+15,Phillip Adams,General participant
+16,Todd Walsh,Survey Leader
+16,Clare Hawkins,Survey Co-lead
+16,Michelle Faheed,Kitchen Assistant
+16,Gaby Jung,General participant
+16,Emily Wilcox,General participant
+17,Peter Gell,Survey Leader
+17,Yolanda Hanusch,Survey Co-lead
+17,Michael Sharman,"Volunteer, Kitchen Hand"
+17,Emma Wasson,"Field Site Coordinator - Coast, Field Site Coordinator - Forest, Field Site Coordinator - Plains"
+17,Francis McDermott,"First Aid Officer, M&E Assistant"
+17,Frank McDermott,"First Aid Officer, Kitchen Assistant"
+17,Adam Bennett,General participant
+17,Sam McIntosh,General participant
+18,Richard Newport,Survey Leader
+18,Rohan Amazadeen,Survey Co-lead
+18,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
+18,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
+18,Melanie Faheedquar,"Kitchen Assistant, Driver"
+18,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
+18,Michael Jackson,General participant
+18,Ayton Senna,General participant
+18,Phillip Adams,General participant
+19,Rob Pergl,Survey Leader
+19,Jenny Webber,"Event Manager, BaseCamp Site Coordinator, Driver"
+19,Nathalie Imbruglia,Bio-security/Hygiene Assistant
+19,Samantha  Mannes,General participant
+20,Rob Pergl,Survey Leader
+20,Chris Carr,Survey Co-lead
+20,Michael Sharman,"Volunteer, Kitchen Hand"
+20,Emma Wasson,"Field Site Coordinator - Coast, Field Site Coordinator - Forest, Field Site Coordinator - Plains"
+20,Francis McDermott,"First Aid Officer, M&E Assistant"
+20,Frank McDermott,"First Aid Officer, Kitchen Assistant"
+20,Adam Bennett,General participant
+20,Sam McIntosh,General participant
+20,Gregory Intox,General participant
+20,Samuel Beckett,General participant
+20,Richard Desiree,General participant
+21,Todd Walsh,Survey Leader
+21,Rohan Amazadeen,Survey Co-lead
+21,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
+21,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
+21,Melanie Faheedquar,"Kitchen Assistant, Driver"
+21,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
+22,Peter Gell,Survey Leader
+22,Tim Amazadeen,Survey Co-lead
+22,Michael Sharman,"Volunteer, Kitchen Hand"
+22,Frank McDermott,"First Aid Officer, Kitchen Assistant"
+22,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
+22,Gaby Jung,General participant
+22,Emily Wilcox,General participant
+22,Samantha  Mannes,General participant
+23,Richard Newport,Survey Leader
+23,Yolanda Hanusch,Survey Co-lead
+23,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
+23,Nathalie Imbruglia,Bio-security/Hygiene Assistant
+23,Michael Jackson,General participant
+23,Ayton Senna,General participant
+23,Gregory Intox,General participant
+24,Nick Fitzgerald,"Survey Leader, Driver"
+24,Rohan Amazadeen,Survey Co-lead
+24,Jenny Webber,"Event Manager, BaseCamp Site Coordinator, Driver"
+24,Frank Knight,General participant
+24,Adam Bennett,General participant
+25,Greg Pitt,Survey Leader
+25,Emma Wasson,"Field Site Coordinator - Coast, Field Site Coordinator - Forest, Field Site Coordinator - Plains"
+25,Michelle Faheed,Kitchen Assistant
+25,Francis McDermott,"First Aid Officer, M&E Assistant"
+25,Phillip Adams,General participant
+25,Samuel Beckett,General participant
+25,Richard Desiree,General participant
+26,Rob Pergl,Survey Leader
+26,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
+26,Melanie Faheedquar,"Kitchen Assistant, Driver"
+26,Sam McIntosh,General participant
+27,Todd Walsh,Survey Leader
+27,Tim Amazadeen,Survey Co-lead
+27,Michael Sharman,"Volunteer, Kitchen Hand"
+28,Peter Gell,Survey Leader
+28,Yolanda Hanusch,Survey Co-lead
+28,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
+28,Emma Wasson,"Field Site Coordinator - Coast, Field Site Coordinator - Forest, Field Site Coordinator - Plains"
+28,Michelle Faheed,Kitchen Assistant
+28,Francis McDermott,"First Aid Officer, M&E Assistant"
+28,Nathalie Imbruglia,Bio-security/Hygiene Assistant
+28,Phillip Adams,General participant
+29,Richard Newport,Survey Leader
+29,Rohan Amazadeen,Survey Co-lead
+29,Jenny Webber,"Event Manager, BaseCamp Site Coordinator, Driver"
+29,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
+29,Melanie Faheedquar,"Kitchen Assistant, Driver"
+29,Frank Knight,General participant
+29,Adam Bennett,General participant
+29,Sam McIntosh,General participant
+30,Rob Pergl,Survey Leader
+30,Tim Amazadeen,Survey Co-lead
+30,Frank McDermott,"First Aid Officer, Kitchen Assistant"
+30,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
+30,Gaby Jung,General participant
+30,Emily Wilcox,General participant
+30,Samantha Mannes,General participant
