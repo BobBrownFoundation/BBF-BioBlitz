@@ -6,7 +6,6 @@ export function up(schema) {
 
     table.dateTime('start')
       .index()
-      .defaultTo('New')
       .notNullable();
 
     table.integer('duration')

@@ -1,6 +1,5 @@
 import Ember from 'ember';
 import parse from 'npm:csv-parse';
-import CsvMapper from 'bbf-bioblitz/utils/csv-model-mapper';
 
 const {
   Promise
@@ -9,10 +8,12 @@ const {
 export default Ember.Service.extend({
 
   store: Ember.inject.service(),
+  modelMapper: Ember.inject.service(),
 
 
   import( csv ) {
     let store = this.get('store');
+    let mapper = this.get('modelMapper');
 
     function commitRecord( model, props ) {
         let obj = store.createRecord( model, props );
@@ -35,11 +36,9 @@ export default Ember.Service.extend({
     }
 
     function mapCsvRow( parsed ) {
-      let csvMapper = CsvMapper.create( { store: store });
-
       return Promise.all(
         parsed.map(
-          row => csvMapper.convertCsvRowToModel( row, csvMapper )
+          row => mapper.mapFieldsToModel( row, mapper )
             .then( ({ model, props }) => commitRecord( model, props ) )
         ));
     }

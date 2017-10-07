@@ -1,18 +1,20 @@
 {
-  "name": "backend",
-  "version": "0.0.1",
+  "name": "bbf-bioblitz",
+  "version": "0.0.5",
   "description": "",
   "scripts": {
     "start": "lux serve",
     "test": "lux test"
   },
-  "author": "",
+  "author": "Michael Sharman",
   "license": "MIT",
   "dependencies": {
     "babel-core": "6.17.0",
     "babel-preset-lux": "2.0.2",
+    "faker": "^4.1.0",
     "knex": "0.12.6",
     "lux-framework": "1.2.1",
+    "pg": "^7.3.0",
     "sqlite3": "3.1.8"
   },
   "engines": {

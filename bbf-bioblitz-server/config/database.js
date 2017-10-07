@@ -10,7 +10,7 @@ export default {
   },
 
   production: {
-    driver: 'sqlite3',
-    database: 'backend_prod'
+    driver: 'pg',
+    database: process.env.DATABASE_URL
   }
 };
