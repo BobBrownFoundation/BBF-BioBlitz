@@ -1,9 +1,9 @@
 import Ember from 'ember';
 const { Promise } = Ember.RSVP;
 
-export default Ember.Object.extend({
-  store: null,
-  convertCsvRowToModel( csvRow ) {
+export default Ember.Service.extend({
+  store: Ember.inject.service(),
+  mapFieldsToModel( csvRow ) {
       let store = this.get('store');
 
       function parseColumnName( fieldName ) {

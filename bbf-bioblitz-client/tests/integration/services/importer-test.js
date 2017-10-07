@@ -4,7 +4,7 @@ import { setupTest } from 'ember-mocha';
 
 describe('Unit | Service | importer', function() {
   setupTest('service:importer', {
-    needs: ['model:team', 'model:timeslot', 'adapter:application']
+    needs: ['model:team', 'model:timeslot', 'adapter:application', 'service:model-mapper']
   });
 
   it('imports team CSV', function() {
@@ -25,13 +25,5 @@ describe('Unit | Service | importer', function() {
       });
   });
 
-  it('parses date strings into Date() objects', function() {
-    let service = this.subject();
-    return service.import(`"Timeslot", "Start", "Duration"
-      "Friday AM", "2017-10-07T09:00:00Z", "180"`)
-      .then( () => service.get('store').findAll('timeslot') )
-      .then( (items) => {
-        expect( items.get('firstObject').get('start').getTime() ).to.equal( new Date("2017-10-07T09:00:00Z").getTime() );
-      });
-  });
+
 });
