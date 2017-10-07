@@ -4,18 +4,34 @@ import { setupTest } from 'ember-mocha';
 
 describe('Unit | Service | importer', function() {
   setupTest('service:importer', {
-    needs: ['model:team', 'adapter:application']
+    needs: ['model:team', 'model:timeslot', 'adapter:application']
   });
 
-const TEAM_CSV = `"Team", "Description"
-  "Survey Leaders", "Leads a group of participants in a survey"
-  "Organisers", "Part of team that organises BioBlitz event"
-  "Volunteers", "General volunteer"`
-
-  // Replace this with your real tests.
-  it('import team CSV', function() {
+  it('imports team CSV', function() {
     let service = this.subject();
-    return service.import(TEAM_CSV)
-      .then( () => expect(service).to.be.ok );
+    return service.import(`"Team", "Description"
+      "Survey Leaders", "Leads a group of participants in a survey"
+      "Organisers", "Part of team that organises BioBlitz event"
+      "Volunteers", "General volunteer"`)
+      .then( () => service.get('store').findAll('team'))
+      .then( (items) => {
+        expect( items.get('length') ).to.equal(3);
+        expect( items.objectAt(0).get('name') ).to.equal('Survey Leaders');
+        expect( items.objectAt(0).get('description') ).to.equal('Leads a group of participants in a survey');
+        expect( items.objectAt(1).get('name') ).to.equal('Organisers');
+        expect( items.objectAt(1).get('description') ).to.equal('Part of team that organises BioBlitz event');
+        expect( items.objectAt(2).get('name') ).to.equal('Volunteers');
+        expect( items.objectAt(2).get('description') ).to.equal('General volunteer');
+      });
+  });
+
+  it('parses date strings into Date() objects', function() {
+    let service = this.subject();
+    return service.import(`"Timeslot", "Start", "Duration"
+      "Friday AM", "2017-10-07T09:00:00Z", "180"`)
+      .then( () => service.get('store').findAll('timeslot') )
+      .then( (items) => {
+        expect( items.get('firstObject').get('start').getTime() ).to.equal( new Date("2017-10-07T09:00:00Z").getTime() );
+      });
   });
 });

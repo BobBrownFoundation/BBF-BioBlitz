@@ -26,11 +26,11 @@ Feature: Import Survey data via spreadsheets
 
       And I import the following spreadsheet:
         ---
-      	 "Person:Id", "FirstName", "LastName"  #, "Teams", "Capable Roles"
-      	 "1", "Michael", "Sharman"             #, "Organiser", "Volunteer, Kitchen Hand"
-         "2", "Dan", "Panek", "Organiser"      #, "Volunteer, Kitchen Hand, Bio Security"
-         "3", "Nicole", "Anderson"             #, "Organiser", "Medical Officer, Kitchen Hand, Bio Security"
-         "4", "Craig", "Broadfield"            # , "Survey Leaders", "Survey Leader"
+      	 "Person:Id", "FirstName", "LastName", "Teams", "Capable Roles"
+      	 "1", "Michael", "Sharman", "Organiser", "Volunteer, Kitchen Hand"
+         "2", "Dan", "Panek", "Organiser", "Volunteer, Kitchen Hand, Bio Security"
+         "3", "Nicole", "Anderson", "Organiser", "Medical Officer, Kitchen Hand, Bio Security"
+         "4", "Craig", "Broadfield", "Survey Leaders", "Survey Leader"
         ---
 
     	And I import the following spreadsheet:
@@ -60,14 +60,14 @@ Feature: Import Survey data via spreadsheets
     	And I import the following spreadsheet:
         ---
       	 "Timeslot", "Start", "Duration"
-         "Friday AM", "24/11/2017 9:00", "180"
-      	 "Friday PM", "24/11/2017 13:00", "240"
-         "Saturday NIGHT", "25/11/2017 19:00", "240"
-         "Saturday AM", "25/11/2017 9:00", "240"
-         "Saturday PM", "25/11/2017 13:00", "180"
-      	 "Sunday DAWN", "26/11/2017 6:00", "240"
-         "Sunday AM", "26/11/2017 9:00", "240"
-         "Sunday PM", "26/11/2017 13:00", "240"
+         "Friday AM", "2017-10-07T09:00:00Z", "180"
+      	 "Friday PM", "2017-11-24T13:00:00Z", "240"
+         "Saturday NIGHT", "2017-11-24T19:00:00Z", "240"
+         "Saturday AM", "2017-11-25T09:00:00Z", "240"
+         "Saturday PM", "2017-11-25T13:00:00Z", "180"
+      	 "Sunday DAWN", "2017-11-26T06:00:00Z", "240"
+         "Sunday AM", "2017-11-26T09:00:00Z", "240"
+         "Sunday PM", "2017-11-26T13:00:00Z", "240"
         ---
 
       And I import the following spreadsheet:

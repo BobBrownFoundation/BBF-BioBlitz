@@ -21,9 +21,19 @@ export default Ember.Object.extend({
         return dsc;
       }
 
+      function convertTypes( model, fieldName, fieldValue ) {
+        let attr = Ember.get( store.modelFor(model), "attributes" ).get(fieldName);
+        if ( attr && attr.type === 'date' ) {
+          return new Date( fieldValue );
+        }
+        return fieldValue;
+      }
+
+
       function resolveField( model, fieldName, fieldValue ) {
 
         let dsc = parseColumnName( fieldName );
+
         if ( dsc.indirectName !== null ) {
           let refModelName = store
               .modelFor(model)
@@ -34,7 +44,9 @@ export default Ember.Object.extend({
           return store.queryRecord( refModelName, queryProps )
             .then( model => { return { name: dsc.fieldName, value: model.get('id') } } );
         } else {
-          return Promise.resolve( { name: dsc.fieldName, value: fieldValue } );
+
+          return Promise.resolve( { name: dsc.fieldName,
+            value: convertTypes( model, dsc.fieldName, fieldValue ) } );
         }
       }
 
@@ -55,17 +67,21 @@ export default Ember.Object.extend({
 
       if ( firstColumn.indirectName === null ) {
         modelProps.model = firstColumn.fieldName;
-        modelProps['name'] = firstColumnValue;
+        modelProps.props['name'] = firstColumnValue;
+      } else if ( firstColumn.fieldName === 'id' ) {
+        // FIXME: Just ignore any Id columns since they should be incrementing
+        // integers anyway - we could check the returned id to match??
+        modelProps.model = firstColumn.indirectName
       } else {
         modelProps.model = firstColumn.indirectName;
-        modelProps[firstColumn.fieldName] = firstColumnValue;
+        modelProps.props[firstColumn.fieldName] = firstColumnValue;
       }
 
       // Iterate the rest of the columns, parsing the column name to
       // determin what the property name is to set
       return Promise.all(
           csvKeys.map( name => resolveField( modelProps.model, name, csvRow[name] ) ) )
-        .then( props => props.forEach( p => modelProps[p.name] = p.value ) )
+        .then( props => props.forEach( p => modelProps.props[p.name] = p.value ) )
         .then( () => modelProps );
 
   }

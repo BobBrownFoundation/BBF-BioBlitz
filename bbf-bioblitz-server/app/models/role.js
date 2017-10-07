@@ -4,7 +4,7 @@ class Role extends Model {
   static hasMany = {
     people: {
       model: 'person',
-      inverse: 'roles',
+      inverse: 'capabilities',
       through: 'capability'
     }
   };
