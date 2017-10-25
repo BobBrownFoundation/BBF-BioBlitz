@@ -3,19 +3,21 @@ import { Model } from 'lux-framework';
 class SurveySlot extends Model {
   static hasOne = {
     survey: {
-      inverse: 'survey-slots'
+      inverse: 'survey-slot'
     },
     location: {
-      inverse: 'survey-slots'
+      inverse: 'survey-slot'
     },
     timeslot: {
-      inverse: 'survey-slots'
+      inverse: 'survey-slot'
     }
   }
 
   static hasMany = {
     participants: {
-      inverse: 'survey-slots'
+      model: 'people',
+      inverse: 'survey-slots',
+      through: 'survey-participant'
     }
   }
 }
