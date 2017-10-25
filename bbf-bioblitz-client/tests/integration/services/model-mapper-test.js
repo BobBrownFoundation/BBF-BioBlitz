@@ -4,7 +4,7 @@ import { setupTest } from 'ember-mocha';
 
 describe('Unit | Service | model-mapper', function() {
   setupTest('service:model-mapper', {
-    needs: ['model:team', 'model:timeslot', 'adapter:application']
+    needs: ['model:team', 'model:timeslot', 'model:survey-slot', 'model:survey', 'adapter:application']
   });
 
   it('simple object works', function() {
@@ -35,6 +35,16 @@ describe('Unit | Service | model-mapper', function() {
         "Timeslot": "Friday AM",
         "Start": "2017-10-07T09:00:00Z",
         "Duration": "180"})
+      .then( result => {
+        expect( result.props.start.getTime() ).to.equal( new Date("2017-10-07T09:00:00Z").getTime() );
+      });
+  });
+
+  it('dereferences satellite objects', function() {
+    let modelMapper = this.subject();
+    return modelMapper.mapFieldsToModel({
+        "SurveySlot:id": 1,
+        "Survey:name": "Test Survey" })
       .then( result => {
         expect( result.props.start.getTime() ).to.equal( new Date("2017-10-07T09:00:00Z").getTime() );
       });

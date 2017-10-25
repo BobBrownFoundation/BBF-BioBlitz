@@ -35,14 +35,25 @@ export default Ember.Service.extend({
         let dsc = parseColumnName( fieldName );
 
         if ( dsc.indirectName !== null ) {
-          let refModelName = store
+          let refModelName = null;
+          try {
+              refModelName = store
               .modelFor(model)
-              .typeForRelationship(dsc.indirectName.camelize())
+              .typeForRelationship(dsc.indirectName.camelize(), store)
               .modelName;
+          } catch( e ) {
+            return Promise.reject( new Error("Unable to find model for " + model + "." + dsc.indirectName ) );
+          }
           let queryProps = {};
           queryProps[dsc.fieldName] = fieldValue;
-          return store.queryRecord( refModelName, queryProps )
-            .then( model => { return { name: dsc.fieldName, value: model.get('id') } } );
+          return store.query( refModelName,{ filter:  queryProps } )
+            .then( model => {
+                if ( model.get('firstObject') ) {
+                  return { name: dsc.fieldName, value: model.get('firstObject').get('id') };
+                } else {
+                  throw new Error("Unable to find " + refModelName + "." + dsc.fieldName + " == " + fieldValue);
+                }
+              } );
         } else {
 
           return Promise.resolve( { name: dsc.fieldName,

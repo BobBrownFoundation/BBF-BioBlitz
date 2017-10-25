@@ -36,7 +36,7 @@ Feature: Import Survey data via spreadsheets
     	And I import the following spreadsheet:
         ---
       	 "Survey", "Description"
-      	 "Birds with Nick Fitzgerald,", "Survey 1 description"
+      	 "Birds with Nick Fitzgerald", "Survey 1 description"
          "Plants with Greg Pitt", "Survey 2 description"
          "Slimemoulds with Rob Pergl", "Survey 3 description"
          "Freshwater Invertebrates with Todd Walsh", "Survey 4 description"
@@ -62,9 +62,11 @@ Feature: Import Survey data via spreadsheets
       	 "Timeslot", "Start", "Duration"
          "Friday AM", "2017-10-07T09:00:00Z", "180"
       	 "Friday PM", "2017-11-24T13:00:00Z", "240"
-         "Saturday NIGHT", "2017-11-24T19:00:00Z", "240"
+         "Friday NIGHT", "2017-11-24T19:00:00Z", "180"
+         "Saturday DAWN", "2017-11-25T06:00:00Z", "240"
          "Saturday AM", "2017-11-25T09:00:00Z", "240"
          "Saturday PM", "2017-11-25T13:00:00Z", "180"
+         "Saturday NIGHT", "2017-11-25T19:00:00Z", "240"
       	 "Sunday DAWN", "2017-11-26T06:00:00Z", "240"
          "Sunday AM", "2017-11-26T09:00:00Z", "240"
          "Sunday PM", "2017-11-26T13:00:00Z", "240"
@@ -73,7 +75,7 @@ Feature: Import Survey data via spreadsheets
       And I import the following spreadsheet:
         ---
       	 "Location", "Description"
-         "Forests", "The forest survey site"
+         "Forest", "The forest survey site"
       	 "Plains",  "The plains survey site"
       	 "Coast",   "The coast survey site"
          "Tarkine Wilderness Lodge", "The Tarkine Wilderness Lodge site"
