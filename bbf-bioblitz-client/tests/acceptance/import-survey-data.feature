@@ -31,6 +31,9 @@ Feature: Import Survey data via spreadsheets
          "2", "Dan", "Panek", "Organiser", "Volunteer, Kitchen Hand, Bio Security"
          "3", "Nicole", "Anderson", "Organiser", "Medical Officer, Kitchen Hand, Bio Security"
          "4", "Craig", "Broadfield", "Survey Leaders", "Survey Leader"
+         "5", "Nick", "Fitzgerald", "Survey Leaders", "Survey Leader"
+         "6", "Clare", "Hawkins", "Survey Leaders", "Survey Leader"
+         "7", "Frank", "McDermott", "Survey Leaders", "Survey Leader"
         ---
 
     	And I import the following spreadsheet:
