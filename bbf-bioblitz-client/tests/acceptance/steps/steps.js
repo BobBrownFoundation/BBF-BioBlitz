@@ -13,6 +13,7 @@ export default function(/*assert*/) {
 
   return Yadda.localisation.English.library(dictionary)
     .when('I import the following spreadsheet:\n$csv', function(csv, next) {
+      this.timeout(50000);
       visit('/import');
       andThen( () => upload( 'input', csv, csv.name ) );
       andThen( () => next() );
