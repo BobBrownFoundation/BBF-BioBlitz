@@ -1,4 +1,5 @@
 import DS from 'ember-data';
+import Ember from 'ember';
 
 export default DS.JSONAPISerializer.extend({
 
@@ -15,7 +16,7 @@ export default DS.JSONAPISerializer.extend({
     return this._super.apply(this, arguments);
   },
 
-  serialize(snapshot, options) {
+  serialize(snapshot /*, options*/) {
     // Replace any commas in strings with %2C
     let json = this._super(...arguments);
     let attrs = json.data.attributes;

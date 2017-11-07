@@ -118,7 +118,7 @@ Feature: Import Survey data via spreadsheets
 
     	And I import the following spreadsheet:
         ---
-        SurveySlot:id,Participant:Name,Roles
+        SurveySlot:id,Participants:Name,Roles
         1,Nick Fitzgerald,"Survey Leader, Driver"
         1,Clare Hawkins,Survey Co-lead
         1,Michael Sharman,"Volunteer, Kitchen Hand"

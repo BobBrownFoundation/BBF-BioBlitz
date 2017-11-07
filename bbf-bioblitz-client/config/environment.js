@@ -22,7 +22,6 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      host: 'http://localhost:4000'
     }
   };
 
@@ -33,6 +32,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.host = 'http://localhost:4000';
   }
 
   if (environment === 'test') {
@@ -44,10 +44,11 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.host = 'http://localhost:4000';
   }
 
   if (environment === 'production') {
-
+    ENV.APP.host = 'https://bbf-bioblitz.herokuapp.com';
   }
 
   return ENV;
