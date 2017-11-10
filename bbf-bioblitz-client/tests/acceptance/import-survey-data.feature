@@ -26,14 +26,44 @@ Feature: Import Survey data via spreadsheets
 
       And I import the following spreadsheet:
         ---
-      	 "Person:Id", "FirstName", "LastName", "Teams", "Capable Roles"
-      	 "1", "Michael", "Sharman", "Organiser", "Volunteer, Kitchen Hand"
-         "2", "Dan", "Panek", "Organiser", "Volunteer, Kitchen Hand, Bio Security"
-         "3", "Nicole", "Anderson", "Organiser", "Medical Officer, Kitchen Hand, Bio Security"
-         "4", "Craig", "Broadfield", "Survey Leaders", "Survey Leader"
-         "5", "Nick", "Fitzgerald", "Survey Leaders", "Survey Leader"
-         "6", "Clare", "Hawkins", "Survey Leaders", "Survey Leader"
-         "7", "Frank", "McDermott", "Survey Leaders", "Survey Leader"
+      	 "Person:FirstName", "LastName", "Teams", "Capable Roles"
+      	 "Michael", "Sharman", "Organiser", "Volunteer, Kitchen Hand"
+         "Dan", "Panek", "Organiser", "Volunteer, Kitchen Hand, Bio Security"
+         "Nicole", "Anderson", "Organiser", "Medical Officer, Kitchen Hand, Bio Security"
+         "Craig", "Broadfield", "Survey Leaders", "Survey Leader"
+         "Nick", "Fitzgerald", "Survey Leaders", "Survey Leader"
+         "Clare", "Hawkins", "Survey Leaders", "Survey Leader"
+         "Frank", "McDermott", "Survey Leaders", "Survey Leader"
+         "Michael", "Jackson", "Survey Leaders", "Survey Leader"
+         "Ayton", "Senna", "Survey Leaders", "Survey Leader"
+         "Phillip", "Adams", "Survey Leaders", "Survey Leader"
+         "Greg", "Pitt", "Survey Leaders", "Survey Leader"
+         "Chris", "Carr", "Survey Leaders", "Survey Leader"
+         "Daniel", "Panek", "Survey Leaders", "Survey Leader"
+         "Melanie", "Faheedquar", "Survey Leaders", "Survey Leader"
+         "Nathalie", "Imbruglia", "Survey Leaders", "Survey Leader"
+         "Frank", "Knight", "Survey Leaders", "Survey Leader"
+         "Adam", "Bennett", "Survey Leaders", "Survey Leader"
+         "Sam", "McIntosh", "Survey Leaders", "Survey Leader"
+         "Rob", "Pergl", "Survey Leaders", "Survey Leader"
+         "Yolanda", "Hanusch", "Survey Leaders", "Survey Leader"
+         "Jasmine", "Wills", "Survey Leaders", "Survey Leader"
+         "Francis", "McDermott", "Survey Leaders", "Survey Leader"
+         "Gaby", "Jung", "Survey Leaders", "Survey Leader"
+         "Emily", "Wilcox", "Survey Leaders", "Survey Leader"
+         "Samantha", "Mannes", "Survey Leaders", "Survey Leader"
+         "Todd", "Walsh", "Survey Leaders", "Survey Leader"
+         "Rohan", "Amazadeen", "Survey Leaders", "Survey Leader"
+         "Jenny", "Webber", "Survey Leaders", "Survey Leader"
+         "Jean", "Jeanerette", "Survey Leaders", "Survey Leader"
+         "Gregory", "Intox", "Survey Leaders", "Survey Leader"
+         "Samuel", "Beckett", "Survey Leaders", "Survey Leader"
+         "Richard", "Desiree", "Survey Leaders", "Survey Leader"
+         "Peter", "Gell", "Survey Leaders", "Survey Leader"
+         "Michelle", "Faheed", "Survey Leaders", "Survey Leader"
+         "Richard", "Newport", "Survey Leaders", "Survey Leader"
+         "Emma", "Wasson", "Survey Leaders", "Survey Leader"
+         "Tim", "Amazadeen", "Survey Leaders", "Survey Leader"
         ---
 
     	And I import the following spreadsheet:
@@ -86,7 +116,7 @@ Feature: Import Survey data via spreadsheets
 
       And I import the following spreadsheet:
         ---
-      	 "SurveySlot:id","Survey:name", "Timeslot:name", "Location:name", "NumberOfParticipants"
+      	 "Surveyslot:id","Survey:name", "Timeslot:name", "Location:name", "NumberOfParticipants"
          1,Birds with Nick Fitzgerald,Friday AM,Tarkine Wilderness Lodge,16
          2,Plants with Greg Pitt,Friday AM,Forest,12
          3,Slimemoulds with Rob Pergl,Friday AM,Plains,12
@@ -121,7 +151,7 @@ Feature: Import Survey data via spreadsheets
 
     	And I import the following spreadsheet:
         ---
-        SurveySlot:id,Participants:Name,Roles
+        Surveyslot:id,Participants:Person:name,Roles
         1,Nick Fitzgerald,"Survey Leader, Driver"
         1,Clare Hawkins,Survey Co-lead
         1,Michael Sharman,"Volunteer, Kitchen Hand"
