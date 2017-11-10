@@ -116,249 +116,249 @@ Feature: Import Survey data via spreadsheets
 
       And I import the following spreadsheet:
         ---
-      	 "Surveyslot:id","Survey:name", "Timeslot:name", "Location:name", "NumberOfParticipants"
-         1,Birds with Nick Fitzgerald,Friday AM,Tarkine Wilderness Lodge,16
-         2,Plants with Greg Pitt,Friday AM,Forest,12
-         3,Slimemoulds with Rob Pergl,Friday AM,Plains,12
-         4,Freshwater Invertebrates with Todd Walsh,Friday PM,Coast,12
-         5,Mosses and Lichens with Peter Gell,Friday PM,Tarkine Wilderness Lodge,16
-         6,Orchids with Richard Newport,Friday PM,Plains,12
-         7,Fungi with Nick Fitzgerald,Friday NIGHT,Coast,12
-         8,Insects with Greg Pitt,Friday NIGHT,Forest,12
-         9,Birds and Mammals with Rob Pergl,Saturday DAWN,Plains,8
-         10,Orchids & Frogs with Todd Walsh,Saturday DAWN,Coast,8
-         11,Invertebrates with Peter Gell,Saturday AM,Forest,12
-         12,Bryophytes with Richard Newport,Saturday AM,Plains,12
-         13,Macro Photography Workshop with Nick Fitzgerald,Saturday AM,Plains,12
-         14,Freshwater Crayfish with Greg Pitt,Saturday AM,Coast,12
-         15,"Mammals, Spotlighting and Frogs with Rob Pergl",Saturday AM,Coast,8
-         16,"Mammals, Scats & Traces & Pack down cameras with Todd Walsh",Saturday PM,Forest,12
-         17,Art Installation with Peter Gell,Saturday PM,Plains,8
-         18,Diatom algae with Richard Newport,Saturday PM,Coast,12
-         19,Waterbugs with Rob Pergl,Saturday PM,Forest,12
-         20,Birds and Mammals with Rob Pergl,Saturday NIGHT,Plains,12
-         21,Orchids & Frogs with Todd Walsh,Saturday NIGHT,Coast,8
-         22,Invertebrates with Peter Gell,Sunday DAWN,Plains,8
-         23,Bryophytes with Richard Newport,Sunday AM,Coast,12
-         24,Macro Photography Workshop with Nick Fitzgerald,Sunday AM,Forest,8
-         25,Freshwater Crayfish with Greg Pitt,Sunday AM,Coast,12
-         26,"Mammals, Spotlighting and Frogs with Rob Pergl",Sunday AM,Forest,12
-         27,"Mammals, Scats & Traces & Pack down cameras with Todd Walsh",Sunday PM,Plains,8
-         28,Art Installation with Peter Gell,Sunday PM,Coast,8
-         29,Diatom algae with Richard Newport,Sunday PM,Forest,12
-         20,"Mammals, Spotlighting and Frogs with Rob Pergl",Sunday PM,Plains,12
+      	 "Surveyslot:Survey:name", "Surveyslot:Timeslot:name", "Surveyslot:Location:name", "NumberOfParticipants"
+         Birds with Nick Fitzgerald,Friday AM,Tarkine Wilderness Lodge,16
+         Plants with Greg Pitt,Friday AM,Forest,12
+         Slimemoulds with Rob Pergl,Friday AM,Plains,12
+         Freshwater Invertebrates with Todd Walsh,Friday PM,Coast,12
+         Mosses and Lichens with Peter Gell,Friday PM,Tarkine Wilderness Lodge,16
+         Orchids with Richard Newport,Friday PM,Plains,12
+         Fungi with Nick Fitzgerald,Friday NIGHT,Coast,12
+         Insects with Greg Pitt,Friday NIGHT,Forest,12
+         Birds and Mammals with Rob Pergl,Saturday DAWN,Plains,8
+         Orchids & Frogs with Todd Walsh,Saturday DAWN,Coast,8
+         Invertebrates with Peter Gell,Saturday AM,Forest,12
+         Bryophytes with Richard Newport,Saturday AM,Plains,12
+         Macro Photography Workshop with Nick Fitzgerald,Saturday AM,Plains,12
+         Freshwater Crayfish with Greg Pitt,Saturday AM,Coast,12
+         "Mammals, Spotlighting and Frogs with Rob Pergl",Saturday AM,Coast,8
+         "Mammals, Scats & Traces & Pack down cameras with Todd Walsh",Saturday PM,Forest,12
+         Art Installation with Peter Gell,Saturday PM,Plains,8
+         Diatom algae with Richard Newport,Saturday PM,Coast,12
+         Waterbugs with Rob Pergl,Saturday PM,Forest,12
+         Birds and Mammals with Rob Pergl,Saturday NIGHT,Plains,12
+         Orchids & Frogs with Todd Walsh,Saturday NIGHT,Coast,8
+         Invertebrates with Peter Gell,Sunday DAWN,Plains,8
+         Bryophytes with Richard Newport,Sunday AM,Coast,12
+         Macro Photography Workshop with Nick Fitzgerald,Sunday AM,Forest,8
+         Freshwater Crayfish with Greg Pitt,Sunday AM,Coast,12
+         "Mammals, Spotlighting and Frogs with Rob Pergl",Sunday AM,Forest,12
+         "Mammals, Scats & Traces & Pack down cameras with Todd Walsh",Sunday PM,Plains,8
+         Art Installation with Peter Gell,Sunday PM,Coast,8
+         Diatom algae with Richard Newport,Sunday PM,Forest,12
+         "Mammals, Spotlighting and Frogs with Rob Pergl",Sunday PM,Plains,12
         ---
 
     	And I import the following spreadsheet:
         ---
-        Surveyslot:id,Participants:Person:name,Roles
-        1,Nick Fitzgerald,"Survey Leader, Driver"
-        1,Clare Hawkins,Survey Co-lead
-        1,Michael Sharman,"Volunteer, Kitchen Hand"
-        1,Frank McDermott,"First Aid Officer, Kitchen Assistant"
-        1,Michael Jackson,General participant
-        1,Ayton Senna,General participant
-        1,Phillip Adams,General participant
-        2,Greg Pitt,Survey Leader
-        2,Chris Carr,Survey Co-lead
-        2,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
-        2,Melanie Faheedquar,"Kitchen Assistant, Driver"
-        2,Nathalie Imbruglia,Bio-security/Hygiene Assistant
-        2,Frank Knight,General participant
-        2,Adam Bennett,General participant
-        2,Sam McIntosh,General participant
-        3,Rob Pergl,Survey Leader
-        3,Yolanda Hanusch,Survey Co-lead
-        3,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
-        3,Francis McDermott,"First Aid Officer, M&E Assistant"
-        3,Gaby Jung,General participant
-        3,Emily Wilcox,General participant
-        3,Samantha  Mannes,General participant
-        4,Todd Walsh,Survey Leader
-        4,Rohan Amazadeen,Survey Co-lead
-        4,Jenny Webber,"Event Manager, BaseCamp Site Coordinator, Driver"
-        4,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
-        4,Gregory Intox,General participant
-        4,Samuel Beckett,General participant
-        4,Richard Desiree,General participant
-        5,Peter Gell,Survey Leader
-        5,Clare Hawkins,Survey Co-lead
-        5,Michael Sharman,"Volunteer, Kitchen Hand"
-        5,Michelle Faheed,Kitchen Assistant
-        5,Frank McDermott,"First Aid Officer, Kitchen Assistant"
-        5,Michael Jackson,General participant
-        5,Ayton Senna,General participant
-        5,Phillip Adams,General participant
-        6,Richard Newport,Survey Leader
-        6,Yolanda Hanusch,Survey Co-lead
-        6,Emma Wasson,"Field Site Coordinator - Coast, Field Site Coordinator - Forest, Field Site Coordinator - Plains"
-        6,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
-        6,Francis McDermott,"First Aid Officer, M&E Assistant"
-        6,Gaby Jung,General participant
-        6,Emily Wilcox,General participant
-        6,Samantha  Mannes,General participant
-        7,Nick Fitzgerald,"Survey Leader, Driver"
-        7,Rohan Amazadeen,Survey Co-lead
-        7,Jenny Webber,"Event Manager, BaseCamp Site Coordinator, Driver"
-        7,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
-        7,Gregory Intox,General participant
-        7,Samuel Beckett,General participant
-        7,Richard Desiree,General participant
-        8,Greg Pitt,Survey Leader
-        8,Chris Carr,Survey Co-lead
-        8,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
-        8,Melanie Faheedquar,"Kitchen Assistant, Driver"
-        8,Nathalie Imbruglia,Bio-security/Hygiene Assistant
-        8,Frank Knight,General participant
-        8,Adam Bennett,General participant
-        8,Sam McIntosh,General participant
-        9,Rob Pergl,Survey Leader
-        9,Yolanda Hanusch,Survey Co-lead
-        9,Michael Sharman,"Volunteer, Kitchen Hand"
-        9,Frank McDermott,"First Aid Officer, Kitchen Assistant"
-        9,Frank Knight,General participant
-        9,Adam Bennett,General participant
-        9,Sam McIntosh,General participant
-        10,Todd Walsh,Survey Leader
-        10,Rohan Amazadeen,Survey Co-lead
-        10,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
-        10,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
-        10,Michael Jackson,General participant
-        10,Ayton Senna,General participant
-        10,Phillip Adams,General participant
-        11,Peter Gell,Survey Leader
-        11,Clare Hawkins,Survey Co-lead
-        11,Jenny Webber,"Event Manager, BaseCamp Site Coordinator, Driver"
-        11,Michelle Faheed,Kitchen Assistant
-        11,Nathalie Imbruglia,Bio-security/Hygiene Assistant
-        11,Gaby Jung,General participant
-        11,Emily Wilcox,General participant
-        11,Samantha  Mannes,General participant
-        12,Richard Newport,Survey Leader
-        12,Chris Carr,Survey Co-lead
-        12,Emma Wasson,"Field Site Coordinator - Coast, Field Site Coordinator - Forest, Field Site Coordinator - Plains"
-        12,Francis McDermott,"First Aid Officer, M&E Assistant"
-        12,Frank McDermott,"First Aid Officer, Kitchen Assistant"
-        12,Frank Knight,General participant
-        12,Gregory Intox,General participant
-        12,Samuel Beckett,General participant
-        13,Nick Fitzgerald,"Survey Leader, Driver"
-        13,Yolanda Hanusch,Survey Co-lead
-        13,Michael Sharman,"Volunteer, Kitchen Hand"
-        13,Melanie Faheedquar,"Kitchen Assistant, Driver"
-        13,Adam Bennett,General participant
-        13,Sam McIntosh,General participant
-        13,Richard Desiree,General participant
-        14,Greg Pitt,Survey Leader
-        14,Rohan Amazadeen,Survey Co-lead
-        14,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
-        14,Michael Jackson,General participant
-        14,Ayton Senna,General participant
-        15,Rob Pergl,Survey Leader
-        15,Tim Amazadeen,Survey Co-lead
-        15,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
-        15,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
-        15,Phillip Adams,General participant
-        16,Todd Walsh,Survey Leader
-        16,Clare Hawkins,Survey Co-lead
-        16,Michelle Faheed,Kitchen Assistant
-        16,Gaby Jung,General participant
-        16,Emily Wilcox,General participant
-        17,Peter Gell,Survey Leader
-        17,Yolanda Hanusch,Survey Co-lead
-        17,Michael Sharman,"Volunteer, Kitchen Hand"
-        17,Emma Wasson,"Field Site Coordinator - Coast, Field Site Coordinator - Forest, Field Site Coordinator - Plains"
-        17,Francis McDermott,"First Aid Officer, M&E Assistant"
-        17,Frank McDermott,"First Aid Officer, Kitchen Assistant"
-        17,Adam Bennett,General participant
-        17,Sam McIntosh,General participant
-        18,Richard Newport,Survey Leader
-        18,Rohan Amazadeen,Survey Co-lead
-        18,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
-        18,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
-        18,Melanie Faheedquar,"Kitchen Assistant, Driver"
-        18,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
-        18,Michael Jackson,General participant
-        18,Ayton Senna,General participant
-        18,Phillip Adams,General participant
-        19,Rob Pergl,Survey Leader
-        19,Jenny Webber,"Event Manager, BaseCamp Site Coordinator, Driver"
-        19,Nathalie Imbruglia,Bio-security/Hygiene Assistant
-        19,Samantha  Mannes,General participant
-        20,Rob Pergl,Survey Leader
-        20,Chris Carr,Survey Co-lead
-        20,Michael Sharman,"Volunteer, Kitchen Hand"
-        20,Emma Wasson,"Field Site Coordinator - Coast, Field Site Coordinator - Forest, Field Site Coordinator - Plains"
-        20,Francis McDermott,"First Aid Officer, M&E Assistant"
-        20,Frank McDermott,"First Aid Officer, Kitchen Assistant"
-        20,Adam Bennett,General participant
-        20,Sam McIntosh,General participant
-        20,Gregory Intox,General participant
-        20,Samuel Beckett,General participant
-        20,Richard Desiree,General participant
-        21,Todd Walsh,Survey Leader
-        21,Rohan Amazadeen,Survey Co-lead
-        21,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
-        21,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
-        21,Melanie Faheedquar,"Kitchen Assistant, Driver"
-        21,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
-        22,Peter Gell,Survey Leader
-        22,Tim Amazadeen,Survey Co-lead
-        22,Michael Sharman,"Volunteer, Kitchen Hand"
-        22,Frank McDermott,"First Aid Officer, Kitchen Assistant"
-        22,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
-        22,Gaby Jung,General participant
-        22,Emily Wilcox,General participant
-        22,Samantha  Mannes,General participant
-        23,Richard Newport,Survey Leader
-        23,Yolanda Hanusch,Survey Co-lead
-        23,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
-        23,Nathalie Imbruglia,Bio-security/Hygiene Assistant
-        23,Michael Jackson,General participant
-        23,Ayton Senna,General participant
-        23,Gregory Intox,General participant
-        24,Nick Fitzgerald,"Survey Leader, Driver"
-        24,Rohan Amazadeen,Survey Co-lead
-        24,Jenny Webber,"Event Manager, BaseCamp Site Coordinator, Driver"
-        24,Frank Knight,General participant
-        24,Adam Bennett,General participant
-        25,Greg Pitt,Survey Leader
-        25,Emma Wasson,"Field Site Coordinator - Coast, Field Site Coordinator - Forest, Field Site Coordinator - Plains"
-        25,Michelle Faheed,Kitchen Assistant
-        25,Francis McDermott,"First Aid Officer, M&E Assistant"
-        25,Phillip Adams,General participant
-        25,Samuel Beckett,General participant
-        25,Richard Desiree,General participant
-        26,Rob Pergl,Survey Leader
-        26,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
-        26,Melanie Faheedquar,"Kitchen Assistant, Driver"
-        26,Sam McIntosh,General participant
-        27,Todd Walsh,Survey Leader
-        27,Tim Amazadeen,Survey Co-lead
-        27,Michael Sharman,"Volunteer, Kitchen Hand"
-        28,Peter Gell,Survey Leader
-        28,Yolanda Hanusch,Survey Co-lead
-        28,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
-        28,Emma Wasson,"Field Site Coordinator - Coast, Field Site Coordinator - Forest, Field Site Coordinator - Plains"
-        28,Michelle Faheed,Kitchen Assistant
-        28,Francis McDermott,"First Aid Officer, M&E Assistant"
-        28,Nathalie Imbruglia,Bio-security/Hygiene Assistant
-        28,Phillip Adams,General participant
-        29,Richard Newport,Survey Leader
-        29,Rohan Amazadeen,Survey Co-lead
-        29,Jenny Webber,"Event Manager, BaseCamp Site Coordinator, Driver"
-        29,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
-        29,Melanie Faheedquar,"Kitchen Assistant, Driver"
-        29,Frank Knight,General participant
-        29,Adam Bennett,General participant
-        29,Sam McIntosh,General participant
-        30,Rob Pergl,Survey Leader
-        30,Tim Amazadeen,Survey Co-lead
-        30,Frank McDermott,"First Aid Officer, Kitchen Assistant"
-        30,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
-        30,Gaby Jung,General participant
-        30,Emily Wilcox,General participant
-        30,Samantha Mannes,General participant
+        "Participants:Surveyslot:Survey:name", "Participants:Surveyslot:Timeslot:name", "Participants:Surveyslot:Location:name","Participants:Person:name",Role
+        Birds with Nick Fitzgerald,Friday AM,Tarkine Wilderness Lodge,Nick Fitzgerald,"Survey Leader, Driver"
+        Birds with Nick Fitzgerald,Friday AM,Tarkine Wilderness Lodge,Clare Hawkins,Survey Co-lead
+        Birds with Nick Fitzgerald,Friday AM,Tarkine Wilderness Lodge,Michael Sharman,"Volunteer, Kitchen Hand"
+        Birds with Nick Fitzgerald,Friday AM,Tarkine Wilderness Lodge,Frank McDermott,"First Aid Officer, Kitchen Assistant"
+        Birds with Nick Fitzgerald,Friday AM,Tarkine Wilderness Lodge,Michael Jackson,General participant
+        Birds with Nick Fitzgerald,Friday AM,Tarkine Wilderness Lodge,Ayton Senna,General participant
+        Birds with Nick Fitzgerald,Friday AM,Tarkine Wilderness Lodge,Phillip Adams,General participant
+        Plants with Greg Pitt,Friday AM,Forest,Greg Pitt,Survey Leader
+        Plants with Greg Pitt,Friday AM,Forest,Chris Carr,Survey Co-lead
+        Plants with Greg Pitt,Friday AM,Forest,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
+        Plants with Greg Pitt,Friday AM,Forest,Melanie Faheedquar,"Kitchen Assistant, Driver"
+        Plants with Greg Pitt,Friday AM,Forest,Nathalie Imbruglia,Bio-security/Hygiene Assistant
+        Plants with Greg Pitt,Friday AM,Forest,Frank Knight,General participant
+        Plants with Greg Pitt,Friday AM,Forest,Adam Bennett,General participant
+        Plants with Greg Pitt,Friday AM,Forest,Sam McIntosh,General participant
+        Slimemoulds with Rob Pergl,Friday AM,Plains,Rob Pergl,Survey Leader
+        Slimemoulds with Rob Pergl,Friday AM,Plains,Yolanda Hanusch,Survey Co-lead
+        Slimemoulds with Rob Pergl,Friday AM,Plains,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
+        Slimemoulds with Rob Pergl,Friday AM,Plains,Francis McDermott,"First Aid Officer, M&E Assistant"
+        Slimemoulds with Rob Pergl,Friday AM,Plains,Gaby Jung,General participant
+        Slimemoulds with Rob Pergl,Friday AM,Plains,Emily Wilcox,General participant
+        Slimemoulds with Rob Pergl,Friday AM,Plains,Samantha  Mannes,General participant
+        Freshwater Invertebrates with Todd Walsh,Friday PM,Coast,Todd Walsh,Survey Leader
+        Freshwater Invertebrates with Todd Walsh,Friday PM,Coast,Rohan Amazadeen,Survey Co-lead
+        Freshwater Invertebrates with Todd Walsh,Friday PM,Coast,Jenny Webber,"Event Manager, BaseCamp Site Coordinator, Driver"
+        Freshwater Invertebrates with Todd Walsh,Friday PM,Coast,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
+        Freshwater Invertebrates with Todd Walsh,Friday PM,Coast,Gregory Intox,General participant
+        Freshwater Invertebrates with Todd Walsh,Friday PM,Coast,Samuel Beckett,General participant
+        Freshwater Invertebrates with Todd Walsh,Friday PM,Coast,Richard Desiree,General participant
+        Mosses and Lichens with Peter Gell,Friday PM,Tarkine Wilderness Lodge,Peter Gell,Survey Leader
+        Mosses and Lichens with Peter Gell,Friday PM,Tarkine Wilderness Lodge,Clare Hawkins,Survey Co-lead
+        Mosses and Lichens with Peter Gell,Friday PM,Tarkine Wilderness Lodge,Michael Sharman,"Volunteer, Kitchen Hand"
+        Mosses and Lichens with Peter Gell,Friday PM,Tarkine Wilderness Lodge,Michelle Faheed,Kitchen Assistant
+        Mosses and Lichens with Peter Gell,Friday PM,Tarkine Wilderness Lodge,Frank McDermott,"First Aid Officer, Kitchen Assistant"
+        Mosses and Lichens with Peter Gell,Friday PM,Tarkine Wilderness Lodge,Michael Jackson,General participant
+        Mosses and Lichens with Peter Gell,Friday PM,Tarkine Wilderness Lodge,Ayton Senna,General participant
+        Mosses and Lichens with Peter Gell,Friday PM,Tarkine Wilderness Lodge,Phillip Adams,General participant
+        Orchids with Richard Newport,Friday PM,Plains,Richard Newport,Survey Leader
+        Orchids with Richard Newport,Friday PM,Plains,Yolanda Hanusch,Survey Co-lead
+        Orchids with Richard Newport,Friday PM,Plains,Emma Wasson,"Field Site Coordinator - Coast, Field Site Coordinator - Forest, Field Site Coordinator - Plains"
+        Orchids with Richard Newport,Friday PM,Plains,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
+        Orchids with Richard Newport,Friday PM,Plains,Francis McDermott,"First Aid Officer, M&E Assistant"
+        Orchids with Richard Newport,Friday PM,Plains,Gaby Jung,General participant
+        Orchids with Richard Newport,Friday PM,Plains,Emily Wilcox,General participant
+        Orchids with Richard Newport,Friday PM,Plains,Samantha  Mannes,General participant
+        Fungi with Nick Fitzgerald,Friday NIGHT,Coast,Nick Fitzgerald,"Survey Leader, Driver"
+        Fungi with Nick Fitzgerald,Friday NIGHT,Coast,Rohan Amazadeen,Survey Co-lead
+        Fungi with Nick Fitzgerald,Friday NIGHT,Coast,Jenny Webber,"Event Manager, BaseCamp Site Coordinator, Driver"
+        Fungi with Nick Fitzgerald,Friday NIGHT,Coast,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
+        Fungi with Nick Fitzgerald,Friday NIGHT,Coast,Gregory Intox,General participant
+        Fungi with Nick Fitzgerald,Friday NIGHT,Coast,Samuel Beckett,General participant
+        Fungi with Nick Fitzgerald,Friday NIGHT,Coast,Richard Desiree,General participant
+        Insects with Greg Pitt,Friday NIGHT,Forest,Greg Pitt,Survey Leader
+        Insects with Greg Pitt,Friday NIGHT,Forest,Chris Carr,Survey Co-lead
+        Insects with Greg Pitt,Friday NIGHT,Forest,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
+        Insects with Greg Pitt,Friday NIGHT,Forest,Melanie Faheedquar,"Kitchen Assistant, Driver"
+        Insects with Greg Pitt,Friday NIGHT,Forest,Nathalie Imbruglia,Bio-security/Hygiene Assistant
+        Insects with Greg Pitt,Friday NIGHT,Forest,Frank Knight,General participant
+        Insects with Greg Pitt,Friday NIGHT,Forest,Adam Bennett,General participant
+        Insects with Greg Pitt,Friday NIGHT,Forest,Sam McIntosh,General participant
+        Birds and Mammals with Rob Pergl,Saturday DAWN,Plains,Rob Pergl,Survey Leader
+        Birds and Mammals with Rob Pergl,Saturday DAWN,Plains,Yolanda Hanusch,Survey Co-lead
+        Birds and Mammals with Rob Pergl,Saturday DAWN,Plains,Michael Sharman,"Volunteer, Kitchen Hand"
+        Birds and Mammals with Rob Pergl,Saturday DAWN,Plains,Frank McDermott,"First Aid Officer, Kitchen Assistant"
+        Birds and Mammals with Rob Pergl,Saturday DAWN,Plains,Frank Knight,General participant
+        Birds and Mammals with Rob Pergl,Saturday DAWN,Plains,Adam Bennett,General participant
+        Birds and Mammals with Rob Pergl,Saturday DAWN,Plains,Sam McIntosh,General participant
+        Orchids & Frogs with Todd Walsh,Saturday DAWN,Coast,Todd Walsh,Survey Leader
+        Orchids & Frogs with Todd Walsh,Saturday DAWN,Coast,Rohan Amazadeen,Survey Co-lead
+        Orchids & Frogs with Todd Walsh,Saturday DAWN,Coast,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
+        Orchids & Frogs with Todd Walsh,Saturday DAWN,Coast,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
+        Orchids & Frogs with Todd Walsh,Saturday DAWN,Coast,Michael Jackson,General participant
+        Orchids & Frogs with Todd Walsh,Saturday DAWN,Coast,Ayton Senna,General participant
+        Orchids & Frogs with Todd Walsh,Saturday DAWN,Coast,Phillip Adams,General participant
+        Invertebrates with Peter Gell,Saturday AM,Forest,Peter Gell,Survey Leader
+        Invertebrates with Peter Gell,Saturday AM,Forest,Clare Hawkins,Survey Co-lead
+        Invertebrates with Peter Gell,Saturday AM,Forest,Jenny Webber,"Event Manager, BaseCamp Site Coordinator, Driver"
+        Invertebrates with Peter Gell,Saturday AM,Forest,Michelle Faheed,Kitchen Assistant
+        Invertebrates with Peter Gell,Saturday AM,Forest,Nathalie Imbruglia,Bio-security/Hygiene Assistant
+        Invertebrates with Peter Gell,Saturday AM,Forest,Gaby Jung,General participant
+        Invertebrates with Peter Gell,Saturday AM,Forest,Emily Wilcox,General participant
+        Invertebrates with Peter Gell,Saturday AM,Forest,Samantha  Mannes,General participant
+        Bryophytes with Richard Newport,Saturday AM,Plains,Richard Newport,Survey Leader
+        Bryophytes with Richard Newport,Saturday AM,Plains,Chris Carr,Survey Co-lead
+        Bryophytes with Richard Newport,Saturday AM,Plains,Emma Wasson,"Field Site Coordinator - Coast, Field Site Coordinator - Forest, Field Site Coordinator - Plains"
+        Bryophytes with Richard Newport,Saturday AM,Plains,Francis McDermott,"First Aid Officer, M&E Assistant"
+        Bryophytes with Richard Newport,Saturday AM,Plains,Frank McDermott,"First Aid Officer, Kitchen Assistant"
+        Bryophytes with Richard Newport,Saturday AM,Plains,Frank Knight,General participant
+        Bryophytes with Richard Newport,Saturday AM,Plains,Gregory Intox,General participant
+        Bryophytes with Richard Newport,Saturday AM,Plains,Samuel Beckett,General participant
+        Macro Photography Workshop with Nick Fitzgerald,Saturday AM,Plains,Nick Fitzgerald,"Survey Leader, Driver"
+        Macro Photography Workshop with Nick Fitzgerald,Saturday AM,Plains,Yolanda Hanusch,Survey Co-lead
+        Macro Photography Workshop with Nick Fitzgerald,Saturday AM,Plains,Michael Sharman,"Volunteer, Kitchen Hand"
+        Macro Photography Workshop with Nick Fitzgerald,Saturday AM,Plains,Melanie Faheedquar,"Kitchen Assistant, Driver"
+        Macro Photography Workshop with Nick Fitzgerald,Saturday AM,Plains,Adam Bennett,General participant
+        Macro Photography Workshop with Nick Fitzgerald,Saturday AM,Plains,Sam McIntosh,General participant
+        Macro Photography Workshop with Nick Fitzgerald,Saturday AM,Plains,Richard Desiree,General participant
+        Freshwater Crayfish with Greg Pitt,Saturday AM,Coast,Greg Pitt,Survey Leader
+        Freshwater Crayfish with Greg Pitt,Saturday AM,Coast,Rohan Amazadeen,Survey Co-lead
+        Freshwater Crayfish with Greg Pitt,Saturday AM,Coast,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
+        Freshwater Crayfish with Greg Pitt,Saturday AM,Coast,Michael Jackson,General participant
+        Freshwater Crayfish with Greg Pitt,Saturday AM,Coast,Ayton Senna,General participant
+        "Mammals, Spotlighting and Frogs with Rob Pergl",Saturday AM,Coast,Rob Pergl,Survey Leader
+        "Mammals, Spotlighting and Frogs with Rob Pergl",Saturday AM,Coast,Tim Amazadeen,Survey Co-lead
+        "Mammals, Spotlighting and Frogs with Rob Pergl",Saturday AM,Coast,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
+        "Mammals, Spotlighting and Frogs with Rob Pergl",Saturday AM,Coast,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
+        "Mammals, Spotlighting and Frogs with Rob Pergl",Saturday AM,Coast,Phillip Adams,General participant
+        "Mammals, Scats & Traces & Pack down cameras with Todd Walsh",Saturday PM,Forest,Todd Walsh,Survey Leader
+        "Mammals, Scats & Traces & Pack down cameras with Todd Walsh",Saturday PM,Forest,Clare Hawkins,Survey Co-lead
+        "Mammals, Scats & Traces & Pack down cameras with Todd Walsh",Saturday PM,Forest,Michelle Faheed,Kitchen Assistant
+        "Mammals, Scats & Traces & Pack down cameras with Todd Walsh",Saturday PM,Forest,Gaby Jung,General participant
+        "Mammals, Scats & Traces & Pack down cameras with Todd Walsh",Saturday PM,Forest,Emily Wilcox,General participant
+        Art Installation with Peter Gell,Saturday PM,Plains,Peter Gell,Survey Leader
+        Art Installation with Peter Gell,Saturday PM,Plains,Yolanda Hanusch,Survey Co-lead
+        Art Installation with Peter Gell,Saturday PM,Plains,Michael Sharman,"Volunteer, Kitchen Hand"
+        Art Installation with Peter Gell,Saturday PM,Plains,Emma Wasson,"Field Site Coordinator - Coast, Field Site Coordinator - Forest, Field Site Coordinator - Plains"
+        Art Installation with Peter Gell,Saturday PM,Plains,Francis McDermott,"First Aid Officer, M&E Assistant"
+        Art Installation with Peter Gell,Saturday PM,Plains,Frank McDermott,"First Aid Officer, Kitchen Assistant"
+        Art Installation with Peter Gell,Saturday PM,Plains,Adam Bennett,General participant
+        Art Installation with Peter Gell,Saturday PM,Plains,Sam McIntosh,General participant
+        Diatom algae with Richard Newport,Saturday PM,Coast,Richard Newport,Survey Leader
+        Diatom algae with Richard Newport,Saturday PM,Coast,Rohan Amazadeen,Survey Co-lead
+        Diatom algae with Richard Newport,Saturday PM,Coast,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
+        Diatom algae with Richard Newport,Saturday PM,Coast,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
+        Diatom algae with Richard Newport,Saturday PM,Coast,Melanie Faheedquar,"Kitchen Assistant, Driver"
+        Diatom algae with Richard Newport,Saturday PM,Coast,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
+        Diatom algae with Richard Newport,Saturday PM,Coast,Michael Jackson,General participant
+        Diatom algae with Richard Newport,Saturday PM,Coast,Ayton Senna,General participant
+        Diatom algae with Richard Newport,Saturday PM,Coast,Phillip Adams,General participant
+        Waterbugs with Rob Pergl,Saturday PM,Forest,Rob Pergl,Survey Leader
+        Waterbugs with Rob Pergl,Saturday PM,Forest,Jenny Webber,"Event Manager, BaseCamp Site Coordinator, Driver"
+        Waterbugs with Rob Pergl,Saturday PM,Forest,Nathalie Imbruglia,Bio-security/Hygiene Assistant
+        Waterbugs with Rob Pergl,Saturday PM,Forest,Samantha  Mannes,General participant
+        Birds and Mammals with Rob Pergl,Saturday NIGHT,Plains,Rob Pergl,Survey Leader
+        Birds and Mammals with Rob Pergl,Saturday NIGHT,Plains,Chris Carr,Survey Co-lead
+        Birds and Mammals with Rob Pergl,Saturday NIGHT,Plains,Michael Sharman,"Volunteer, Kitchen Hand"
+        Birds and Mammals with Rob Pergl,Saturday NIGHT,Plains,Emma Wasson,"Field Site Coordinator - Coast, Field Site Coordinator - Forest, Field Site Coordinator - Plains"
+        Birds and Mammals with Rob Pergl,Saturday NIGHT,Plains,Francis McDermott,"First Aid Officer, M&E Assistant"
+        Birds and Mammals with Rob Pergl,Saturday NIGHT,Plains,Frank McDermott,"First Aid Officer, Kitchen Assistant"
+        Birds and Mammals with Rob Pergl,Saturday NIGHT,Plains,Adam Bennett,General participant
+        Birds and Mammals with Rob Pergl,Saturday NIGHT,Plains,Sam McIntosh,General participant
+        Birds and Mammals with Rob Pergl,Saturday NIGHT,Plains,Gregory Intox,General participant
+        Birds and Mammals with Rob Pergl,Saturday NIGHT,Plains,Samuel Beckett,General participant
+        Birds and Mammals with Rob Pergl,Saturday NIGHT,Plains,Richard Desiree,General participant
+        Orchids & Frogs with Todd Walsh,Saturday NIGHT,Coast,Todd Walsh,Survey Leader
+        Orchids & Frogs with Todd Walsh,Saturday NIGHT,Coast,Rohan Amazadeen,Survey Co-lead
+        Orchids & Frogs with Todd Walsh,Saturday NIGHT,Coast,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
+        Orchids & Frogs with Todd Walsh,Saturday NIGHT,Coast,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
+        Orchids & Frogs with Todd Walsh,Saturday NIGHT,Coast,Melanie Faheedquar,"Kitchen Assistant, Driver"
+        Orchids & Frogs with Todd Walsh,Saturday NIGHT,Coast,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
+        Invertebrates with Peter Gell,Sunday DAWN,Plains,Peter Gell,Survey Leader
+        Invertebrates with Peter Gell,Sunday DAWN,Plains,Tim Amazadeen,Survey Co-lead
+        Invertebrates with Peter Gell,Sunday DAWN,Plains,Michael Sharman,"Volunteer, Kitchen Hand"
+        Invertebrates with Peter Gell,Sunday DAWN,Plains,Frank McDermott,"First Aid Officer, Kitchen Assistant"
+        Invertebrates with Peter Gell,Sunday DAWN,Plains,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
+        Invertebrates with Peter Gell,Sunday DAWN,Plains,Gaby Jung,General participant
+        Invertebrates with Peter Gell,Sunday DAWN,Plains,Emily Wilcox,General participant
+        Invertebrates with Peter Gell,Sunday DAWN,Plains,Samantha  Mannes,General participant
+        Bryophytes with Richard Newport,Sunday AM,Coast,Richard Newport,Survey Leader
+        Bryophytes with Richard Newport,Sunday AM,Coast,Yolanda Hanusch,Survey Co-lead
+        Bryophytes with Richard Newport,Sunday AM,Coast,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
+        Bryophytes with Richard Newport,Sunday AM,Coast,Nathalie Imbruglia,Bio-security/Hygiene Assistant
+        Bryophytes with Richard Newport,Sunday AM,Coast,Michael Jackson,General participant
+        Bryophytes with Richard Newport,Sunday AM,Coast,Ayton Senna,General participant
+        Bryophytes with Richard Newport,Sunday AM,Coast,Gregory Intox,General participant
+        Macro Photography Workshop with Nick Fitzgerald,Sunday AM,Forest,Nick Fitzgerald,"Survey Leader, Driver"
+        Macro Photography Workshop with Nick Fitzgerald,Sunday AM,Forest,Rohan Amazadeen,Survey Co-lead
+        Macro Photography Workshop with Nick Fitzgerald,Sunday AM,Forest,Jenny Webber,"Event Manager, BaseCamp Site Coordinator, Driver"
+        Macro Photography Workshop with Nick Fitzgerald,Sunday AM,Forest,Frank Knight,General participant
+        Macro Photography Workshop with Nick Fitzgerald,Sunday AM,Forest,Adam Bennett,General participant
+        Freshwater Crayfish with Greg Pitt,Sunday AM,Coast,Greg Pitt,Survey Leader
+        Freshwater Crayfish with Greg Pitt,Sunday AM,Coast,Emma Wasson,"Field Site Coordinator - Coast, Field Site Coordinator - Forest, Field Site Coordinator - Plains"
+        Freshwater Crayfish with Greg Pitt,Sunday AM,Coast,Michelle Faheed,Kitchen Assistant
+        Freshwater Crayfish with Greg Pitt,Sunday AM,Coast,Francis McDermott,"First Aid Officer, M&E Assistant"
+        Freshwater Crayfish with Greg Pitt,Sunday AM,Coast,Phillip Adams,General participant
+        Freshwater Crayfish with Greg Pitt,Sunday AM,Coast,Samuel Beckett,General participant
+        Freshwater Crayfish with Greg Pitt,Sunday AM,Coast,Richard Desiree,General participant
+        "Mammals, Spotlighting and Frogs with Rob Pergl",Sunday AM,Forest,Rob Pergl,Survey Leader
+        "Mammals, Spotlighting and Frogs with Rob Pergl",Sunday AM,Forest,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
+        "Mammals, Spotlighting and Frogs with Rob Pergl",Sunday AM,Forest,Melanie Faheedquar,"Kitchen Assistant, Driver"
+        "Mammals, Spotlighting and Frogs with Rob Pergl",Sunday AM,Forest,Sam McIntosh,General participant
+        "Mammals, Scats & Traces & Pack down cameras with Todd Walsh",Sunday PM,Plains,Todd Walsh,Survey Leader
+        "Mammals, Scats & Traces & Pack down cameras with Todd Walsh",Sunday PM,Plains,Tim Amazadeen,Survey Co-lead
+        "Mammals, Scats & Traces & Pack down cameras with Todd Walsh",Sunday PM,Plains,Michael Sharman,"Volunteer, Kitchen Hand"
+        Art Installation with Peter Gell,Sunday PM,Coast,Peter Gell,Survey Leader
+        Art Installation with Peter Gell,Sunday PM,Coast,Yolanda Hanusch,Survey Co-lead
+        Art Installation with Peter Gell,Sunday PM,Coast,Daniel Panek,"BaseCamp Site Coordinator, Driver, Data Coordinator"
+        Art Installation with Peter Gell,Sunday PM,Coast,Emma Wasson,"Field Site Coordinator - Coast, Field Site Coordinator - Forest, Field Site Coordinator - Plains"
+        Art Installation with Peter Gell,Sunday PM,Coast,Michelle Faheed,Kitchen Assistant
+        Art Installation with Peter Gell,Sunday PM,Coast,Francis McDermott,"First Aid Officer, M&E Assistant"
+        Art Installation with Peter Gell,Sunday PM,Coast,Nathalie Imbruglia,Bio-security/Hygiene Assistant
+        Art Installation with Peter Gell,Sunday PM,Coast,Phillip Adams,General participant
+        Diatom algae with Richard Newport,Sunday PM,Forest,Richard Newport,Survey Leader
+        Diatom algae with Richard Newport,Sunday PM,Forest,Rohan Amazadeen,Survey Co-lead
+        Diatom algae with Richard Newport,Sunday PM,Forest,Jenny Webber,"Event Manager, BaseCamp Site Coordinator, Driver"
+        Diatom algae with Richard Newport,Sunday PM,Forest,Jasmine Wills,"Transport Coordintor, BaseCamp Site Coordinator, Driver"
+        Diatom algae with Richard Newport,Sunday PM,Forest,Melanie Faheedquar,"Kitchen Assistant, Driver"
+        Diatom algae with Richard Newport,Sunday PM,Forest,Frank Knight,General participant
+        Diatom algae with Richard Newport,Sunday PM,Forest,Adam Bennett,General participant
+        Diatom algae with Richard Newport,Sunday PM,Forest,Sam McIntosh,General participant
+        "Mammals, Spotlighting and Frogs with Rob Pergl",Sunday PM,Plains,Rob Pergl,Survey Leader
+        "Mammals, Spotlighting and Frogs with Rob Pergl",Sunday PM,Plains,Tim Amazadeen,Survey Co-lead
+        "Mammals, Spotlighting and Frogs with Rob Pergl",Sunday PM,Plains,Frank McDermott,"First Aid Officer, Kitchen Assistant"
+        "Mammals, Spotlighting and Frogs with Rob Pergl",Sunday PM,Plains,Jean Jeanerette,"IT Assistant, SocialMedia Assistant"
+        "Mammals, Spotlighting and Frogs with Rob Pergl",Sunday PM,Plains,Gaby Jung,General participant
+        "Mammals, Spotlighting and Frogs with Rob Pergl",Sunday PM,Plains,Emily Wilcox,General participant
+        "Mammals, Spotlighting and Frogs with Rob Pergl",Sunday PM,Plains,Samantha Mannes,General participant
         ---
 
       Then the following survey assignment should be created:
