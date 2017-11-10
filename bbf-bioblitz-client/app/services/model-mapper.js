@@ -83,12 +83,25 @@ export default Ember.Service.extend({
            object isn't found. */
         function lookupUpOrCreateRecords( expandedFieldChain, lookupValue ) {
           return expandedFieldChain.reduce(
-              ( promise, { model, /*kind,*/ field } ) =>
+              ( promise, { model, kind, field } ) =>
                   promise
-                    .then( value => lookUpByProperty( model.modelName, field,
+                    .then( value => {
+                        if (kind === 'value') {
+                          // look up entity for this value
+                          return lookUpByProperty( model.modelName, field,
                           ( typeof value === 'object' ? value.get('id') : value )
-                        ).catch( () => store.createRecord( model.modelName,
-                           { [field]: value } ) )
+                          ).catch( () => store.createRecord( model.modelName,
+                             { [field]: value } ) );
+                        } else {
+                          // FIXME: What should be done here?
+                          // currently we create a new record as a link.
+                          // this doesn't look up existing links so will
+                          // create dups.
+                          return store.createRecord( model.modelName,
+                             { [field]: value } );
+
+                        }
+                    }
                     ),  Promise.resolve(
                           convertTypes( model, field, lookupValue ) ) );
         }
@@ -98,7 +111,7 @@ export default Ember.Service.extend({
         return lookupUpOrCreateRecords( expansion, fieldValue )
           .then ( value => {
             if ( kind === 'hasMany' ) {
-              obj.pushObject( field, value );
+              obj.get(field).pushObject( value );
             } else {
               obj.set( field, value );
             }
