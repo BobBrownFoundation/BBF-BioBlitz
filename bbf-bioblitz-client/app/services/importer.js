@@ -28,7 +28,7 @@ export default Ember.Service.extend({
     function mapCsvRow( parsed ) {
       return Promise.all(
         parsed.map(
-          row => mapper.mapFieldsToModel( row, mapper )
+          row => mapper.mapFieldsToModel( row )
             .then( obj => obj.save() )
         ));
     }
