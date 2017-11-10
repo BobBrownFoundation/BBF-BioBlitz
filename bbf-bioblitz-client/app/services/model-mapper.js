@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import parseFieldMapping from 'bbf-bioblitz/utils/parse-field-mapping';
 
 const { Promise } = Ember.RSVP;
 
@@ -7,11 +8,6 @@ export default Ember.Service.extend({
 
   mapFieldsToModel( csvRow ) {
       let store = this.get('store');
-
-      function parseColumnName( fieldName ) {
-        let parts = fieldName.split(':');
-        return parts.map( n => n.camelize() );
-      }
 
       function convertTypes( model, fieldName, fieldValue ) {
         let attr = Ember.get( model, "attributes" ).get(fieldName);
@@ -28,7 +24,7 @@ export default Ember.Service.extend({
               [fieldName]: value
             }
           } ).then( models => {
-            if (models.length == 0 )
+            if (models.get('length') == 0 )
               throw new Error('Unable to find model');
             return models.get('firstObject');
           });
@@ -36,47 +32,7 @@ export default Ember.Service.extend({
 
       function resolveField( obj, modelName, fieldName, fieldValue ) {
 
-        let model = store.modelFor(modelName);
-
-        /*
-          Pass an array of field names and model e.g.
-            rootModel = Surveyslot, fieldChain = [ 'participants', 'person', 'name' ]
-          returns an array that looks like this:
-            [
-              { model: Person, kind: 'value', field: 'name'},
-              { model: Participant, kind: 'hasOne', field: 'person' },
-              { model: Surveyslot, kind:'hasMany', field: 'participants' }
-            ]
-        */
-        function expandModelChain( rootModel, fieldChain ) {
-
-          // base case
-          if ( fieldChain.length === 1 )
-            return [{ model: rootModel, kind: 'value', field: fieldChain[0]}];
-
-          // construct n based on n-1
-          let [ indirectField, ... restOfChain ] = fieldChain;
-          let relationshipMeta =
-            Ember.get( rootModel, 'relationshipsByName')
-              .get( indirectField );
-
-          if ( typeof relationshipMeta === 'undefined')
-            throw new Error(`Unable to find relationship ${indirectField} in ${rootModel.modelName}`);
-
-          let refModel =  store.modelFor( relationshipMeta.type );
-
-          if ( typeof refModel === 'undefined')
-            throw new Error(`Unable to find type for relationship ${indirectField} in ${rootModel.modelName}`);
-
-          let expansion = expandModelChain( refModel, restOfChain );
-          expansion.push( {model: rootModel, kind: relationshipMeta.kind,
-            field: indirectField });
-
-        /*  console.log("expansion is:");
-          expansion.forEach( ({model,kind,field}) => console.log( `model = ${model.modelName} kind = ${kind} field = ${field}`) );*/
-          return expansion;
-
-        }
+        console.log(`obj = ${obj} modelName = ${modelName} fieldName = ${fieldName} fieldValue = ${fieldValue}`);
 
         /* Takes the datastructure returned by expandModelChain(), iterates it
            looking for pre-existing objects and creating blank records if the
@@ -88,10 +44,10 @@ export default Ember.Service.extend({
                     .then( value => {
                         if (kind === 'value') {
                           // look up entity for this value
-                          return lookUpByProperty( model.modelName, field,
-                          ( typeof value === 'object' ? value.get('id') : value )
-                          ).catch( () => store.createRecord( model.modelName,
-                             { [field]: value } ) );
+                          return lookUpByProperty( model.modelName, field, value )
+                             .catch( () =>
+                                store.createRecord( model.modelName,
+                                  { [field]: value } ) );
                         } else {
                           // FIXME: What should be done here?
                           // currently we create a new record as a link.
@@ -99,64 +55,46 @@ export default Ember.Service.extend({
                           // create dups.
                           return store.createRecord( model.modelName,
                              { [field]: value } );
-
                         }
-                    }
-                    ),  Promise.resolve(
-                          convertTypes( model, field, lookupValue ) ) );
+                    }),  Promise.resolve(lookupValue) );
         }
 
-        let expansion = expandModelChain( model, parseColumnName( fieldName ) );
-        let { kind, field } = expansion.pop();
+        let expansion = parseFieldMapping(
+          ( modelName ? store.modelFor(modelName) : null ),
+          fieldName, store );
+
+        // If we have a root object
+        var kind, field;
+        if ( obj ) {
+          let tmp = expansion.pop();
+          kind = tmp.kind;
+          field = tmp.field;
+        }
         return lookupUpOrCreateRecords( expansion, fieldValue )
           .then ( value => {
-            if ( kind === 'hasMany' ) {
-              obj.get(field).pushObject( value );
+            if ( obj ) {
+              if ( kind === 'hasMany' ) {
+                obj.get(field).pushObject( value );
+              } else {
+                if ( modelName ) {
+                  value = convertTypes( store.modelFor(modelName), field, value )
+                }
+                obj.set( field, value );
+              }
+              return obj;
             } else {
-              obj.set( field, value );
+              return value;
             }
-            return obj;
           });
       }
 
-      // The first column name is special: if it has no colon character then
-      // it refers to the name of the model and the values are the ids.
-      //
-      // If there is a colon then the values are stored in that proprty name.
-      function createOrLookupRecord( modelName, fieldName, fieldValue ) {
-        let props = {};
-        if ( fieldName === 'id' ) {
-            return store.findRecord( modelName, fieldValue )
-              .catch( () => store.createRecord( modelName, props ));
-        } else {
-          if ( ! fieldName ) fieldName = 'name';
-          props[fieldName] = fieldValue;
-          return Promise.resolve( store.createRecord( modelName, props ) );
-        }
-      }
+      let [firstColumn, ...csvKeys] = Object.keys( csvRow );
 
-      let
-          csvKeys = Object.keys( csvRow ),
-          firstColumnName = csvKeys.shift(),
-          firstColumnValue = csvRow[firstColumnName],
-          firstColumn = parseColumnName( firstColumnName );
-
-      let modelName = null, fieldName = null;
-      if (firstColumn.length > 1) {
-        modelName = firstColumn.slice(-2)[0];
-        fieldName = firstColumn.slice(-1)[0];
-      } else {
-        modelName = firstColumn[0];
-        fieldName = 'name';
-      }
-
-      if ( modelName == null )
-        throw new Error("Must specify the object class in first column! ");
-
-      return createOrLookupRecord( modelName, fieldName, firstColumnValue )
-          .then( obj => Promise.all(
-              csvKeys.map(
-                  name => resolveField( obj, modelName, name, csvRow[name] )
-              )).then( () => obj ));
+      return resolveField( null, null, firstColumn, csvRow[firstColumn] )
+        .then( obj =>
+          Promise.all(
+            csvKeys.map( name =>
+              resolveField( obj, obj.get('constructor.modelName'), name, csvRow[name] ) )
+        ).then( () => obj ));
   }
 });

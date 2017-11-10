@@ -5,7 +5,7 @@ export default DS.Model.extend({
   firstName: DS.attr('string'),
   lastName: DS.attr('string'),
   memberOf: DS.hasMany('team'),
-  capabilities: DS.hasMany('role'),
+  /*capabilities: DS.hasMany('role'),*/
   participatingIn: DS.hasMany('participant'),
   name: Ember.computed('firstName', 'lastName', {
     get() {
