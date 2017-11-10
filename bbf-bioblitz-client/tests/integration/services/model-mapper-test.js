@@ -4,7 +4,7 @@ import { setupTest } from 'ember-mocha';
 
 describe('Unit | Service | model-mapper', function() {
   setupTest('service:model-mapper', {
-    needs: ['model:team', 'model:timeslot', 'model:survey-slot', 'model:survey', 'adapter:application']
+    needs: ['model:team', 'model:timeslot', 'model:surveyslot', 'model:survey', 'adapter:application']
   });
 
   it('simple object works', function() {

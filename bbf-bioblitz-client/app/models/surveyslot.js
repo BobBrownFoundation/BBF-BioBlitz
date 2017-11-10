@@ -4,6 +4,6 @@ export default DS.Model.extend({
   location: DS.belongsTo('location'),
   timeslot: DS.belongsTo('timeslot'),
   survey: DS.belongsTo('survey'),
-  participants: DS.hasMany('person'),
+  participants: DS.hasMany('participant'),
   numberOfParticipants: DS.attr('number')
 });
