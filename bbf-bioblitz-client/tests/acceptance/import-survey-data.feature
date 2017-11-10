@@ -26,7 +26,7 @@ Feature: Import Survey data via spreadsheets
 
       And I import the following spreadsheet:
         ---
-      	 "Person:FirstName", "LastName", "Teams", "Capable Roles"
+      	 "Person:FirstName", "Person:LastName", "Teams", "Capable Roles"
       	 "Michael", "Sharman", "Organiser", "Volunteer, Kitchen Hand"
          "Dan", "Panek", "Organiser", "Volunteer, Kitchen Hand, Bio Security"
          "Nicole", "Anderson", "Organiser", "Medical Officer, Kitchen Hand, Bio Security"
@@ -151,7 +151,7 @@ Feature: Import Survey data via spreadsheets
 
     	And I import the following spreadsheet:
         ---
-        "Participants:Surveyslot:Survey:name", "Participants:Surveyslot:Timeslot:name", "Participants:Surveyslot:Location:name","Participants:Person:name",Role
+        "Participant:Surveyslot:Survey:name", "Participant:Surveyslot:Timeslot:name", "Participant:Surveyslot:Location:name","Participant:Person:name",Role
         Birds with Nick Fitzgerald,Friday AM,Tarkine Wilderness Lodge,Nick Fitzgerald,"Survey Leader, Driver"
         Birds with Nick Fitzgerald,Friday AM,Tarkine Wilderness Lodge,Clare Hawkins,Survey Co-lead
         Birds with Nick Fitzgerald,Friday AM,Tarkine Wilderness Lodge,Michael Sharman,"Volunteer, Kitchen Hand"

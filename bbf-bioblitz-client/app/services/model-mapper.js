@@ -17,84 +17,123 @@ export default Ember.Service.extend({
         return fieldValue;
       }
 
-      function lookUpByProperty( modelName, fieldName, value ) {
-      //  console.log(`looking up ${modelName}.${fieldName} == ${value}`);
-        return store.query( modelName, {
-            filter: {
-              [fieldName]: value
-            }
-          } ).then( models => {
-            if (models.get('length') == 0 )
-              throw new Error('Unable to find model');
-            return models.get('firstObject');
-          });
+      function checkSingleModel( models ) {
+        if (models.get('length') == 0 )
+          return null;
+        if (models.get('length') > 1 )
+          throw new Error('Ambiguous model');
+        return models.get('firstObject');
       }
 
-      function resolveField( obj, modelName, fieldName, fieldValue ) {
+      function lookUpByProperty( modelName, fieldName, value ) {
+        return store.query( modelName, { filter: { [fieldName]: value } } )
+          .then(checkSingleModel);
+      }
 
-        console.log(`obj = ${obj} modelName = ${modelName} fieldName = ${fieldName} fieldValue = ${fieldValue}`);
+      function lookUpByProperties( modelName, filter ) {
+        return store.query( modelName, { filter: filter } )
+          .then(checkSingleModel);
+      }
 
-        /* Takes the datastructure returned by expandModelChain(), iterates it
-           looking for pre-existing objects and creating blank records if the
-           object isn't found. */
-        function lookupUpOrCreateRecords( expandedFieldChain, lookupValue ) {
-          return expandedFieldChain.reduce(
-              ( promise, { model, kind, field } ) =>
-                  promise
-                    .then( value => {
-                        if (kind === 'value') {
-                          // look up entity for this value
-                          return lookUpByProperty( model.modelName, field, value )
-                             .catch( () =>
-                                store.createRecord( model.modelName,
-                                  { [field]: value } ) );
-                        } else {
-                          // FIXME: What should be done here?
-                          // currently we create a new record as a link.
-                          // this doesn't look up existing links so will
-                          // create dups.
-                          return store.createRecord( model.modelName,
-                             { [field]: value } );
-                        }
-                    }),  Promise.resolve(lookupValue) );
-        }
+      /* Takes the datastructure returned by expandModelChain(), iterates it
+         looking for pre-existing objects and creating blank records if the
+         object isn't found. */
+      function reduceFieldChain( chain, lookupValue ) {
+        return chain.reduce(
+            ( promise, { model, kind, field } ) =>
+                promise
+                  .then( value => {
+                      if (kind === 'value') {
+                        // look up entity for this value
+                        return lookUpByProperty( model.modelName, field, value )
+                           .then( newValue => {
+                              if ( newValue )
+                                return newValue;
+                              else
+                                return store.createRecord(
+                                  model.modelName,
+                                  { [field]: value } );
+                            } );
 
-        let expansion = parseFieldMapping(
-          ( modelName ? store.modelFor(modelName) : null ),
-          fieldName, store );
-
-        // If we have a root object
-        var kind, field;
-        if ( obj ) {
-          let tmp = expansion.pop();
-          kind = tmp.kind;
-          field = tmp.field;
-        }
-        return lookupUpOrCreateRecords( expansion, fieldValue )
-          .then ( value => {
-            if ( obj ) {
-              if ( kind === 'hasMany' ) {
-                obj.get(field).pushObject( value );
-              } else {
-                if ( modelName ) {
-                  value = convertTypes( store.modelFor(modelName), field, value )
-                }
-                obj.set( field, value );
-              }
-              return obj;
-            } else {
-              return value;
-            }
-          });
+                      } else {
+                        // FIXME: What should be done here?
+                        // currently we create a new record as a link.
+                        // this doesn't look up existing links so will
+                        // create dups.
+                        return store.createRecord( model.modelName,
+                           { [field]: value } );
+                      }
+                  }),  Promise.resolve(lookupValue) );
       }
 
       let [firstColumn, ...csvKeys] = Object.keys( csvRow );
+      let rootExpansion = parseFieldMapping( null, firstColumn, store );
+      let rootModel = rootExpansion.slice(-1)[0].model;
+      let keyExpansions = [];
+      let expansions = [];
 
-      return resolveField( null, null, firstColumn, csvRow[firstColumn] )
-        .then( obj =>
+      function processMapping( expansionTail, name ) {
+        let finalExpansion = expansionTail.pop();
+        let expansion = {
+            name: name,
+            value: csvRow[name],
+            finalExpansion: finalExpansion,
+            expansionTail: expansionTail
+        };
+        if ( finalExpansion.useAsKey ) {
+          keyExpansions.push( expansion );
+        } else {
+          expansions.push( expansion );
+        }
+      }
+
+      processMapping( rootExpansion, firstColumn );
+
+      csvKeys.forEach(
+        key => processMapping(
+           parseFieldMapping( rootModel, key, store ), key
+         ));
+
+      // look up combined key
+      return Promise.all(
+              keyExpansions.map( exp =>
+                reduceFieldChain( exp.expansionTail, exp.value )
+                  .then( value => { return { field: exp.finalExpansion.field, value: value }; } )
+        )).then( values => {
+          let query = {};
+          values.forEach( val => {
+            if ( typeof val.value === 'object' )
+              query[val.field + 'Id'] = val.value.get('id');
+            else
+              query[val.field] = val.value;
+          });
+          return lookUpByProperties( rootModel.modelName, query )
+            .then( rootObject => {
+              if ( rootObject === null ) {
+                let props = {};
+                values.forEach( val => props[val.field] = val.value );
+                return store.createRecord( rootModel.modelName, props );
+              } else {
+                return rootObject;
+              }
+            });
+        })
+        // retrieve all the fields for the object
+        .then( rootObject =>
           Promise.all(
-            csvKeys.map( name =>
-              resolveField( obj, obj.get('constructor.modelName'), name, csvRow[name] ) )
-        ).then( () => obj ));
+            expansions.map(
+                exp  =>
+                reduceFieldChain( exp.expansionTail, exp.value )
+                  .then( value => {
+                      let { model, kind, field } = exp.finalExpansion;
+                      let convertedValue = convertTypes( model, field, value );
+
+                      if ( kind === 'hasMany' ) {
+                        rootObject.get(field).pushObject( convertedValue );
+                      } else {
+                        rootObject.set( field, convertedValue );
+                      }
+                    }))
+            ).then( () => rootObject ) );
   }
 });
