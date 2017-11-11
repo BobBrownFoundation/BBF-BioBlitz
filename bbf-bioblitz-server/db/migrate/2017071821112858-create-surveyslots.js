@@ -1,5 +1,5 @@
 export function up(schema) {
-  return schema.createTable('survey_slots', table => {
+  return schema.createTable('surveyslots', table => {
     table.increments('id');
 
 

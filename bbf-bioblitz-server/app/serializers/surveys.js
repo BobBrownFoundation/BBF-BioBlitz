@@ -5,6 +5,10 @@ class SurveysSerializer extends Serializer {
     'name',
     'description'
   ]
+
+  hasMany = [
+    'surveySlots'
+  ];
 }
 
 export default SurveysSerializer;

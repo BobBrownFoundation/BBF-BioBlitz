@@ -6,6 +6,10 @@ class Person extends Model {
       model: 'role',
       inverse: 'people',
       through: 'capability'
+    },
+    participants: {
+      model: 'participant',
+      inverse: 'person'
     }
   };
 }

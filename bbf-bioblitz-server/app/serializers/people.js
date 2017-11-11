@@ -7,7 +7,8 @@ class PeopleSerializer extends Serializer {
   ];
 
   hasMany = [
-    'capabilities'
+    'capabilities',
+    'participants'
   ];
 }
 
