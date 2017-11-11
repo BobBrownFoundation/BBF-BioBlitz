@@ -35,6 +35,31 @@ export default Ember.Service.extend({
           .then(checkSingleModel);
       }
 
+      function processMapping( expansionTail, name ) {
+        let finalExpansion = expansionTail.pop();
+        let expansion = {
+            name: name,
+            value: csvRow[name],
+            finalExpansion: finalExpansion,
+            expansionTail: expansionTail
+        };
+        if ( finalExpansion.useAsKey ) {
+          keyExpansions.push( expansion );
+        } else {
+          expansions.push( expansion );
+        }
+      }
+
+      function createNewRecordIfNull( [ rootObject, values ] ) {
+        if ( rootObject === null ) {
+          let props = {};
+          values.forEach( val => props[val.field] = val.value );
+          return store.createRecord( rootObject.constructor.modelName, props );
+        } else {
+          return rootObject;
+        }
+      }
+
       /* Takes the datastructure returned by expandModelChain(), iterates it
          looking for pre-existing objects and creating blank records if the
          object isn't found. */
@@ -66,26 +91,33 @@ export default Ember.Service.extend({
                   }),  Promise.resolve(lookupValue) );
       }
 
+      function reduceCompositeChain( keyExp ) {
+        return Promise.all(
+                keyExp.map( exp =>
+                  reduceFieldChain( exp.expansionTail, exp.value )
+                    .then( value => { return { field: exp.finalExpansion.field, value: value }; } )
+          )).then( values => {
+
+            let query = {};
+            values.forEach( val => {
+              if ( typeof val.value === 'object' )
+                query[val.field + 'Id'] = val.value.get('id');
+              else
+                query[val.field] = val.value;
+            });
+            return [ lookUpByProperties( rootModel.modelName, query ), values ];
+          } );
+      }
+
+
+
       let [firstColumn, ...csvKeys] = Object.keys( csvRow );
       let rootExpansion = parseFieldMapping( null, firstColumn, store );
       let rootModel = rootExpansion.slice(-1)[0].model;
       let keyExpansions = [];
       let expansions = [];
 
-      function processMapping( expansionTail, name ) {
-        let finalExpansion = expansionTail.pop();
-        let expansion = {
-            name: name,
-            value: csvRow[name],
-            finalExpansion: finalExpansion,
-            expansionTail: expansionTail
-        };
-        if ( finalExpansion.useAsKey ) {
-          keyExpansions.push( expansion );
-        } else {
-          expansions.push( expansion );
-        }
-      }
+
 
       processMapping( rootExpansion, firstColumn );
 
@@ -95,29 +127,8 @@ export default Ember.Service.extend({
          ));
 
       // look up combined key
-      return Promise.all(
-              keyExpansions.map( exp =>
-                reduceFieldChain( exp.expansionTail, exp.value )
-                  .then( value => { return { field: exp.finalExpansion.field, value: value }; } )
-        )).then( values => {
-          let query = {};
-          values.forEach( val => {
-            if ( typeof val.value === 'object' )
-              query[val.field + 'Id'] = val.value.get('id');
-            else
-              query[val.field] = val.value;
-          });
-          return lookUpByProperties( rootModel.modelName, query )
-            .then( rootObject => {
-              if ( rootObject === null ) {
-                let props = {};
-                values.forEach( val => props[val.field] = val.value );
-                return store.createRecord( rootModel.modelName, props );
-              } else {
-                return rootObject;
-              }
-            });
-        })
+      return reduceCompositeChain(keyExpansions)
+        .then( createNewRecordIfNull )
         // retrieve all the fields for the object
         .then( rootObject =>
           Promise.all(
