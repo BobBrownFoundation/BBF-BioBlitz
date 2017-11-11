@@ -1,13 +1,13 @@
 export function up(schema) {
-  return schema.createTable('survey_participants', table => {
+  return schema.createTable('participants', table => {
     table.increments('id');
 
     table.integer('person_id')
       .index();
 
-    table.integer('survey_slot_id')
+    table.integer('surveyslot_id')
         .index();
-        
+
     table.timestamps();
 
     table.index('created_at');
@@ -16,5 +16,5 @@ export function up(schema) {
 }
 
 export function down(schema) {
-  return schema.dropTable('survey_participants');
+  return schema.dropTable('participants');
 }

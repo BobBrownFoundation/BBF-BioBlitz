@@ -6,8 +6,8 @@ export default function()  {
   this.resource('capabilities');
 
   //this.resource('team-participants');
-  this.resource('survey-participants');
+  this.resource('participants');
   this.resource('surveys');
   this.resource('timeslots');
-  this.resource('survey-slots');
+  this.resource('surveyslots');
 };

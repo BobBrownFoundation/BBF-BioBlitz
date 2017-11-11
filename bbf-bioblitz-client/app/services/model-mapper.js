@@ -34,31 +34,89 @@ export default Ember.Service.extend({
         return store.query( modelName, { filter: filter } )
           .then(checkSingleModel);
       }
+      /*
+        each chain which is [ {model: ..., kind:..., field:... } ]
+        is recursively processed into the following
+        data structure :
+
+          composedChain: {
+            <field>: {
+              <model>: { <field>: { }..., kind: value: { <model>: { .. } }
+            }
+          }
+
+          Participant:Person:name, Participant:Surveyslot:Location:name, Participant:Surveyslot:Timeslot:name, Participant:Surveyslot:Survey:name
+
+          {
+            model: Participant
+            values: {
+              'person': {
+                model: Person,
+                values: {
+                  'name': true
+                }
+              },
+              'surveyslot': {
+                  model: Surveyslot,
+                  values: {
+                    'location': {
+                      model: Location,
+                      values: {
+                       'name': true
+                      }
+                    },
+                    'survey': {
+                      model: Survey,
+                      values: {
+                       'name': true
+                      }
+                    },
+                    'timeslot': {
+                      model: Timeslot,
+                      values: {
+                        'name': true
+                      }
+                    }
+                }
+
+     */
+
+     function composeChains( composedChain, [c, ...chain], value ) {
+       if ( !composedChain.model ) {
+         composedChain.model = c.model;
+         composedChain.values = {};
+       } else if ( composedChain.model.modelName !== c.model.modelName ) {
+         throw new Error( 'Can\'t combine different models!' );
+       }
+
+       if ( c.kind === 'belongsTo' ) {
+         if ( ! (c.field in composedChain.values) ) {
+           composedChain.values[c.field] = {};
+         }
+         composeChains( composedChain.values[c.field], chain, value );
+       } else if ( c.kind === 'value' ) {
+         composedChain.values[c.field] = value;
+       } else {
+         throw new Error('Can\'t dereference ' + c.kind + ' relationships (sorry)');
+       }
+     }
 
       function processMapping( expansionTail, name ) {
         let finalExpansion = expansionTail.pop();
-        let expansion = {
-            name: name,
-            value: csvRow[name],
-            finalExpansion: finalExpansion,
-            expansionTail: expansionTail
-        };
+        let value = csvRow[name];
         if ( finalExpansion.useAsKey ) {
-          keyExpansions.push( expansion );
+          expansionTail.push( finalExpansion );
+          composeChains( keyExpansions, expansionTail.reverse(), value );
         } else {
-          expansions.push( expansion );
+          expansions.push( {
+              name: name,
+              value: value,
+              finalExpansion: finalExpansion,
+              expansionTail: expansionTail
+          } );
         }
       }
 
-      function createNewRecordIfNull( [ rootObject, values ] ) {
-        if ( rootObject === null ) {
-          let props = {};
-          values.forEach( val => props[val.field] = val.value );
-          return store.createRecord( rootObject.constructor.modelName, props );
-        } else {
-          return rootObject;
-        }
-      }
 
       /* Takes the datastructure returned by expandModelChain(), iterates it
          looking for pre-existing objects and creating blank records if the
@@ -91,22 +149,49 @@ export default Ember.Service.extend({
                   }),  Promise.resolve(lookupValue) );
       }
 
-      function reduceCompositeChain( keyExp ) {
+      /* takes the composed chain datastructure and
+         performs value lookups to look up root object */
+      function reduceCompositeChain( composedChain ) {
         return Promise.all(
-                keyExp.map( exp =>
-                  reduceFieldChain( exp.expansionTail, exp.value )
-                    .then( value => { return { field: exp.finalExpansion.field, value: value }; } )
-          )).then( values => {
+          Object.keys( composedChain.values )
+            .map( field => {
+              let chain = composedChain.values[field];
+              if ( typeof chain === 'object' ) {
+                 return reduceCompositeChain( chain )
+                  .then( value => {
+                    return {
+                      query: field + 'Id',
+                      queryValue: value.get('id'),
+                      field: field,
+                      value: value
+                    };
+                  });
+              } else {
+                // value is already retrieved
+                return Promise.resolve( {
+                  query: field,
+                  queryValue: chain,
+                  field: field,
+                  value: chain
+                });
+              }
+            }))
+            .then( values => {
+              // prepare query hashes
+              let props = {};
+              let queryProps = {};
+              values.forEach( ({ query, queryValue, field, value }) => {
+                queryProps[query] = queryValue;
+                props[field] = value;
+              });
+              return lookUpByProperties( composedChain.model.modelName, queryProps )
+                .then( value =>{
+                  if ( value !== null )
+                    return value;
+                  return store.createRecord( composedChain.model.modelName, props );
+                });
 
-            let query = {};
-            values.forEach( val => {
-              if ( typeof val.value === 'object' )
-                query[val.field + 'Id'] = val.value.get('id');
-              else
-                query[val.field] = val.value;
             });
-            return [ lookUpByProperties( rootModel.modelName, query ), values ];
-          } );
       }
 
 
@@ -114,7 +199,7 @@ export default Ember.Service.extend({
       let [firstColumn, ...csvKeys] = Object.keys( csvRow );
       let rootExpansion = parseFieldMapping( null, firstColumn, store );
       let rootModel = rootExpansion.slice(-1)[0].model;
-      let keyExpansions = [];
+      let keyExpansions = {};
       let expansions = [];
 
 
@@ -128,7 +213,7 @@ export default Ember.Service.extend({
 
       // look up combined key
       return reduceCompositeChain(keyExpansions)
-        .then( createNewRecordIfNull )
+
         // retrieve all the fields for the object
         .then( rootObject =>
           Promise.all(
