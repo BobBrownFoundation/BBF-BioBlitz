@@ -1,0 +1,77 @@
+.ember-light-table,body,html {
+    font-family: 'Open Sans',sans-serif;
+    color: #333;
+}
+
+.page-container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "header header"
+    "menu body";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.page-container > header {
+  grid-area: header;
+  background: #4c9138;
+  color: #daf274;
+  padding-top: 1em;
+  padding-right: 2em;
+  padding-left: 2em;
+  overflow: hidden;
+  border-bottom: solid #4e6336 2px;
+  min-width: 40em;
+}
+.page-container > article {
+  grid-area: body;
+  padding: 1em 2em 2em 2em;
+  background-color: #f9fff2;
+  font-size: 16px;
+}
+.ember-light-table {
+/*  border: solid thin #dd6a58;*/
+}
+.ember-light-table .lt-head {
+  color: #f9f9f9;
+  background-color: #dd6a58;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px
+}
+.ember-light-table .lt-column,
+.ember-light-table .lt-cell {
+  padding: 1em;
+  border: solid thin #dd6a58;
+}
+
+.ember-light-table .lt-body {
+
+}
+
+.ember-light-table .lt-row {
+
+}
+
+.ember-light-table .lt-cell {
+
+}
+
+.page-container > section {
+  grid-area: menu;
+  border-right: solid #4e6336 2px;
+  text-align: center;
+  background-color: #c4edb8;
+}
+.page-container > section > a {
+  color: #6d8700;
+  text-decoration: none;
+  display: block;
+  margin: 1em 1em;
+}
+.page-container > section > h2 {
+  display: none;
+}
