@@ -9,6 +9,10 @@ const Router = Ember.Router.extend({
 Router.map(function() {
   this.route('import');
   this.route('locations');
+  this.route('roles');
+  this.route('surveys');
+  this.route('teams');
+  this.route('timeslots');
 });
 
 export default Router;

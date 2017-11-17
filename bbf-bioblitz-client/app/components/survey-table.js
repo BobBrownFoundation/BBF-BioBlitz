@@ -1,13 +1,15 @@
 import Component from '@ember/component';
 import BaseTable from 'bbf-bioblitz/mixins/basetable';
+import BaseTableLayout from 'bbf-bioblitz/templates/basetable'
 import { computed } from '@ember/object';
 
 export default Component.extend(BaseTable, {
   model: [],
-  queryModel: 'location',
+  layout: BaseTableLayout,
+  queryModel: 'survey',
   columns: computed(function() {
     return [{
-      label: 'Location Name',
+      label: 'Survey Name',
       valuePath: 'name'
     }, {
       label: 'Description',
