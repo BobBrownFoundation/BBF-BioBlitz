@@ -2,6 +2,7 @@ import { Controller } from 'lux-framework';
 import Person from 'app/models/person';
 
 class PeopleController extends Controller {
+  defaultPerPage: number = 999999;
   params = [ 'lastName', 'firstName' ];
   filter = [ 'lastName', 'firstName', 'name' ];
   beforeAction = [

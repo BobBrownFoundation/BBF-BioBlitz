@@ -6,14 +6,18 @@ import { computed } from '@ember/object';
 export default Component.extend(BaseTable, {
   model: [],
   layout: BaseTableLayout,
-  queryModel: 'team',
+  queryModel: 'surveyslot',
   columns: computed(function() {
     return [{
-      label: 'Team Name',
-      valuePath: 'name'
+      label: 'Survey Name',
+      valuePath: 'survey.name',
+      width: '350px'
+    },{
+      label: 'Site Name',
+      valuePath: 'location.name'
     }, {
-      label: 'Description',
-      valuePath: 'description'
+      label: 'Timeslot',
+      valuePath: 'timeslot.name'
     }];
   })
 });

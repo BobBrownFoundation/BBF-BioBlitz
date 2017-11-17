@@ -7,7 +7,7 @@ class SurveysSerializer extends Serializer {
   ]
 
   hasMany = [
-    'surveySlots'
+    'surveyslots'
   ];
 }
 

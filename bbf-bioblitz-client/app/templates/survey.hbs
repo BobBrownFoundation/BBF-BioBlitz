@@ -1,0 +1,8 @@
+<h1>Survey: {{model.name}}</h1>
+<p>{{model.description}}</p>
+{{#each model.slots as |surveyslot|}}
+  <article>
+  <h2>{{surveyslot.location.name}} {{surveyslot.timeslot.name}}</h2>
+  {{participant-person-table model=surveyslot.participants}}
+  </article>
+{{/each}}

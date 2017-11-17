@@ -9,26 +9,27 @@ import { task } from 'ember-concurrency';
 export default Mixin.create({
   store: Ember.inject.service(),
 
-  page: 0,
-  limit: 10,
   dir: 'asc',
   sort: null,
 
-  isLoading: computed.oneWay('fetchRecords.isRunning'),
-  canLoadMore: true,
-  enableSync: true,
-
-  //model: null,
+  model: null,
   meta: null,
   columns: null,
   table: null,
 
-  queryModel: null,
+  height: '50vh',
+  canSelect: false,
+
+  // Sort Logic
+  sortedModel: computed.sort('model', 'sortBy'),
+  sortBy: computed('dir', 'sort', function() {
+    return [`${this.get('sort')}:${this.get('dir')}`];
+  }),
 
   init() {
     this._super(...arguments);
 
-    let table = new Table(this.get('columns'), this.get('model'), { enableSync: this.get('enableSync') });
+    let table = new Table(this.get('columns'), this.get('sortedModel'), { enableSync: true });
     let sortColumn = table.get('allColumns').findBy('valuePath', this.get('sort'));
 
     // Setup initial sort column
@@ -39,7 +40,7 @@ export default Mixin.create({
     this.set('table', table);
   },
 
-  fetchRecords: task(function*() {
+/*  fetchRecords: task(function*() {
     let query = {
       'page[number]': this.get('page'),
       'page[size]': this.get('limit')
@@ -51,25 +52,30 @@ export default Mixin.create({
     this.get('model').pushObjects(records.toArray());
     this.set('meta', records.get('meta'));
     this.set('canLoadMore', !isEmpty(records));
-  }).restartable(),
+  }).restartable(),*/
 
   actions: {
-    onScrolledToBottom() {
+    onRowClicked(row) {
+      if ( this.get('canSelect') ) {
+        this.get('router').transitionTo(this.get('queryModel'), row.content.get('id') );
+      }
+    },
+
+  /*  onScrolledToBottom() {
       if (this.get('canLoadMore')) {
         this.incrementProperty('page');
         this.get('fetchRecords').perform();
       }
-    },
+    },*/
 
     onColumnClick(column) {
       if (column.sorted) {
         this.setProperties({
           dir: column.ascending ? 'asc' : 'desc',
-          sort: column.get('valuePath'),
-          canLoadMore: true,
-          page: 0
+          sort: column.get('valuePath')
         });
-        this.get('model').clear();
+
+        this.get('table').setRows(this.get('sortedModel'));
       }
     }
   }
