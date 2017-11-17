@@ -1,4 +1,4 @@
-{{#light-table table height='65vh' as |t|}}
+{{#light-table table height=height as |t|}}
 
   {{!--
     In order for `fa-sort-asc` and `fa-sort-desc` icons to work,
@@ -15,8 +15,8 @@
   }}
 
   {{#t.body
-    canSelect=false
-    onScrolledToBottom=(action 'onScrolledToBottom')
+    canSelect=canSelect
+    onRowClick=(action 'onRowClicked')
     as |body|
   }}
     {{#if isLoading}}

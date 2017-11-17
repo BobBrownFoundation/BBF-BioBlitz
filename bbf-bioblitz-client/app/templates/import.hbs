@@ -1,1 +1,33 @@
+<h4>Upload CSV</h4>
 {{csv-import}}
+<p>
+  Each CSV file is mapped to a database entity via a special specification in the column name:
+   <ul>
+     <li>Each column is a string of entity or field names serparated by a colon:
+          <pre>&lt;entity name&gt;:&lt;field name&gt;:&lt;field name&gt;<strong> (first columns only)</strong>
+
+or
+
+&lt;parent of parents name&gt;:&lt;field name&gt;:&lt;field name&gt;<strong> (subsequent lines unless compound key)</strong>
+</pre></li>
+     <li>The first column is special, the first part of the path is assumed to be the
+       name of the table to import into.</li>
+     <li>The first column(s) are also used to search the existing database for a
+       matching record, if one is found the row is used to update the attributes
+       of that record.</li>
+     <li>It is also possible to used a combined key by having multiple columns
+        prefixed by the entity name, for example:
+       <pre>Participant:Person:FirstName,Participant:Person:LastName,Survey:Name
+"Joe","Bloggs","Birds with Nic Fitzgerald"</pre>
+       This will search for Participant records that match the id field of the
+       Person table looked up by the query  person.firstName = 'Joe' and
+       person.lastName = 'Bloggs' and update the
+       survey field to the id of the survey with survey.name = 'Birds with Nic Fitzgerald'.
+       <p>Note that the "person" in "Pariticipant:Person:LastName" is the name
+       of the property "person" on the "Participant" entity not the "Person" entity
+       itself. (The only time the entities are referenced is for the first part
+       of the path when selecting a column to use as a index for finding existing
+       records.)</p>
+    </li>
+  </ul>
+</p>

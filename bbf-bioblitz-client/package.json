@@ -41,6 +41,7 @@
     "ember-light-table": "^1.11.0",
     "ember-load-initializers": "^1.0.0",
     "ember-mocha": "^0.12.0",
+    "ember-one-way-controls": "^3.0.1",
     "ember-resolver": "^4.5.0",
     "ember-responsive": "^2.0.5",
     "ember-source": "^2.14.1",
