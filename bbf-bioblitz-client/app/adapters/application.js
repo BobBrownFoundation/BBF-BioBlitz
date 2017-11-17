@@ -9,9 +9,11 @@ export default DS.JSONAPIAdapter.extend({
       switch( params.requestType ) {
 
         case 'query':
-          attrs = params.query.filter;
-          Object.keys(attrs)
-            .forEach( (key) => attrs[key] = attrs[key].replace(',','%2C') );
+          if ( typeof params.query.filter !== 'undefined' ) {
+            attrs = params.query.filter;
+            Object.keys(attrs)
+              .forEach( (key) => attrs[key] = attrs[key].replace(',','%2C') );
+          }
           break;
       }
 
