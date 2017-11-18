@@ -3,8 +3,8 @@ import Person from 'app/models/person';
 
 class PeopleController extends Controller {
   defaultPerPage: number = 999999;
-  params = [ 'lastName', 'firstName' ];
-  filter = [ 'lastName', 'firstName', 'name' ];
+  params = [ 'lastName', 'firstName', 'team' ];
+  filter = [ 'lastName', 'firstName', 'name', 'teamId' ];
   beforeAction = [
     // If a filter is supplied with the filter parameter "name" then this is
     // transparently converted into a filter with firstName and lastName set

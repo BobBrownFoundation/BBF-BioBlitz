@@ -1,12 +1,12 @@
 import { Model } from 'lux-framework';
 
 class Team extends Model {
-  /*static hasMany = {
-    participants: {
-      inverse: 'teams',
-      through: 'team-participants'
+  static hasMany = {
+    members: {
+      model: 'person',
+      inverse: 'team'
     }
-  };*/
+  };
 }
 
 export default Team;

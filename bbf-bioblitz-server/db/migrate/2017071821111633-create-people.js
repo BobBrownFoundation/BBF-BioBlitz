@@ -7,10 +7,14 @@ export function up(schema) {
       .defaultTo('New')
       .notNullable();
 
-      table.string('lastName')
-        .index()
-        .defaultTo('Name')
-        .notNullable();
+    table.string('lastName')
+      .index()
+      .defaultTo('Name')
+      .notNullable();
+
+    table.integer('team_id')
+      .index();
+
 
     table.timestamps();
 

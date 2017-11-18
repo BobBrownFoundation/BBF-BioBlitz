@@ -10,6 +10,10 @@ class PeopleSerializer extends Serializer {
     'capabilities',
     'participants'
   ];
+
+  hasOne = [
+    'team'
+  ];
 }
 
 export default PeopleSerializer;
