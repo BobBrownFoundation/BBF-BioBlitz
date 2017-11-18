@@ -1,0 +1,23 @@
+Teams Import:
+Team, Description
+
+Sites Import:
+"Location", "Description"
+
+Timeslots Import:
+"Timeslot", "Start", "Duration"
+
+Survey Import:
+"Survey", "Description"
+
+Survey to Timeslot:
+"Surveyslot:Survey:name", "Surveyslot:Timeslot:name", "Surveyslot:Location:name", "NumberOfParticipants"
+
+Participants Import
+
+name (first) ==> Person:FirstName
+name (last)  ==> Person:LastName
+
+Participants to survey/timeslot/site:
+
+"Participant:Surveyslot:Survey:name", "Participant:Surveyslot:Timeslot:name", "Participant:Surveyslot:Location:name","Participant:Person:name"

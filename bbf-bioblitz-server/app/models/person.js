@@ -1,6 +1,11 @@
 import { Model } from 'lux-framework';
 
 class Person extends Model {
+  static belongsTo = {
+    team: {
+      inverse: 'members'
+    }
+  };
   static hasMany = {
     capabilities: {
       model: 'role',

@@ -14,6 +14,9 @@ export default Component.extend(BaseTable, {
     }, {
       label: 'Last Name',
       valuePath: 'lastName'
+    }, {
+      label: 'Team',
+      valuePath: 'team.name'
     }];
   })
 });

@@ -1,0 +1,11 @@
+usecase: 
+
+participant wants to book into a survey
+
+1. find participant summary, lists current assigned surveys
+2. show surveys timetable by site, showing number of free spots.
+3. click +, find surveys.
+
+usecase:
+
+1. load survey slot, click - to remove participant.
