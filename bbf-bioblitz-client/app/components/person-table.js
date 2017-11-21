@@ -16,7 +16,8 @@ export default Component.extend(BaseTable, {
       valuePath: 'lastName'
     }, {
       label: 'Team',
-      valuePath: 'team.name'
+      valuePath: 'team.name',
+      cellComponent: 'team-display'
     }];
   })
 });

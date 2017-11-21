@@ -4,13 +4,15 @@ import BaseTableLayout from 'bbf-bioblitz/templates/components/basetable';
 import { computed } from '@ember/object';
 
 export default Component.extend(BaseTable, {
-  model: [],
+  model: null,
   layout: BaseTableLayout,
-  queryModel: 'participant',
+  queryModel: 'person',
+  queryIdPath: 'person.id',
   columns: computed(function() {
     return [{
-      label: 'Name',
-      valuePath: 'person.name'
+      label: 'Participant',
+      valuePath: 'person.name',
+      cellComponent: 'person-with-remove'
     }];
   })
 });

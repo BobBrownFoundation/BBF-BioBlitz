@@ -1,4 +1,4 @@
-{{#light-table table height=height as |t|}}
+{{#light-table table as |t|}}
 
   {{!--
     In order for `fa-sort-asc` and `fa-sort-desc` icons to work,
@@ -11,7 +11,7 @@
     iconSortable='fa fa-sort'
     iconAscending='fa fa-sort-asc'
     iconDescending='fa fa-sort-desc'
-    fixed=true
+    fixed=false
   }}
 
   {{#t.body
@@ -24,6 +24,12 @@
         {{table-loader}}
       {{/body.loader}}
     {{/if}}
+
   {{/t.body}}
+
+  {{#t.foot}}
+
+    {{yield}}
+  {{/t.foot}}
 
 {{/light-table}}

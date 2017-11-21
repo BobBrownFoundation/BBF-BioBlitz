@@ -6,24 +6,24 @@ import { computed } from '@ember/object';
 export default Component.extend(BaseTable, {
   model: [],
   layout: BaseTableLayout,
-  queryModel: 'person',
-  queryIdPath: 'person.id',
+  queryModel: 'surveyslot',
+  queryIdPath: 'surveyslot.id',
   columns: computed(function() {
-    return [{
-      label: 'Name',
-      valuePath: 'person.name',
-      cellComponent: 'person-display'
-    }, {
-      label: 'Site',
-      valuePath: 'surveyslot.location.name'
-    },
+    return [
+      {
+         label: 'Site',
+         valuePath: 'surveyslot.location.name'
+       },
+       {
+        label: 'Time Slot',
+        valuePath: 'surveyslot.timeslot.name'
+      },
     {
       label: 'Survey',
-      valuePath: 'surveyslot.survey.name'
+      valuePath: 'surveyslot.survey.name',
+      width: '25em',
+      cellComponent: 'survey-with-remove'
     },
-     {
-      label: 'Time Slot',
-      valuePath: 'surveyslot.timeslot.name'
-    }];
+     ];
   })
 });

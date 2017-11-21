@@ -11,7 +11,9 @@ module.exports = function(environment) {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
-        'ds-improved-ajax': true
+        'ds-improved-ajax': true,
+        'ds-finder-include': true,
+        'ds-references': true
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.

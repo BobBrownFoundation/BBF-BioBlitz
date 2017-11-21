@@ -1,0 +1,14 @@
+{{#if showing}}
+{{combo-box
+  valueList=availableSurveyslots
+  itemKey='id'
+  itemLabel=surveySlotLabel
+  canFilter=true
+  orderBy='survey.name'
+  onSelected=(action 'setSelection')
+}}
+<button {{action 'selectSurveyslot'}}>Assign Survey</button>
+<button {{action 'collapse'}}>Cancel</button>
+{{else}}
+<div class='plus'{{action 'expand'}}>+</div>
+{{/if}}

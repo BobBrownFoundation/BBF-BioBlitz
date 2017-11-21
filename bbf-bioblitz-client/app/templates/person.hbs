@@ -1,0 +1,7 @@
+<h1>Participant: {{model.name}}</h1>
+<h2>Assigned surveys:</h2>
+<article>
+{{#participant-surveyslot-table model=model.participatingIn}}
+  {{select-surveyslot person=model}}
+{{/participant-surveyslot-table}}
+</article>
