@@ -17,6 +17,8 @@
   "devDependencies": {
     "broccoli-asset-rev": "^2.6.0",
     "csv-parse": "^2.0.0",
+    "element-resize-detector": "^1.1.12",
+    "ember-advanced-combobox": "^1.12.0",
     "ember-ajax": "^3.0.0",
     "ember-browserify": "^1.2.0",
     "ember-cli": "^2.14.2",
@@ -40,13 +42,15 @@
     "ember-font-awesome": "^4.0.0-alpha.14",
     "ember-light-table": "^1.11.0",
     "ember-load-initializers": "^1.0.0",
+    "ember-lodash": "^4.17.5",
     "ember-mocha": "^0.12.0",
     "ember-one-way-controls": "^3.0.1",
     "ember-resolver": "^4.5.0",
     "ember-responsive": "^2.0.5",
     "ember-source": "^2.14.1",
     "ember-welcome-page": "^3.0.0",
-    "loader.js": "^4.6.0"
+    "loader.js": "^4.6.0",
+    "popper.js": "^1.12.9"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"

@@ -17,6 +17,8 @@ Router.map(function() {
   this.route('surveyslots');
   this.route('sites');
   this.route('survey', { path: '/survey/:survey_id'});
+  this.route('surveyslot', { path: '/surveyslot/:surveyslot_id' } );
+  this.route('person', { path: '/person/:person_id' } );
 });
 
 export default Router;

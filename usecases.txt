@@ -9,3 +9,11 @@ participant wants to book into a survey
 usecase:
 
 1. load survey slot, click - to remove participant.
+
+
+TODO:
+Add TEAMS
+Add Column team to people list
+
+
+public page to view survey assignments -> admin stuff "firewalled" by apache security off thecodesharman.com.au server.
