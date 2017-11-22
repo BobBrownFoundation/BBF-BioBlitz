@@ -50,7 +50,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.host = 'https://bbf-bioblitz.herokuapp.com';
+    ENV.APP.host = 'https://bbf-bioblitz-backend.herokuapp.com';
   }
 
   return ENV;

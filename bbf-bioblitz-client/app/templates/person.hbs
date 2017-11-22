@@ -2,6 +2,8 @@
 <h2>Assigned surveys:</h2>
 <article>
 {{#participant-surveyslot-table model=model.participatingIn}}
+{{#if session.isAdmin}}
   {{select-surveyslot person=model}}
+{{/if}}
 {{/participant-surveyslot-table}}
 </article>

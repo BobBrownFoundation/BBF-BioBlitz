@@ -3,6 +3,8 @@
 <article>
 <h2>{{model.location.name}} {{model.timeslot.name}}</h2>
 {{#participant-person-table model=model.participants}}
+{{#if session.isAdmin}}
   {{select-participant surveyslot=model}}
+{{/if}}
 {{/participant-person-table}}
 </article>

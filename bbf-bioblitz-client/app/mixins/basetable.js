@@ -32,7 +32,7 @@ export default Mixin.create({
   init() {
     this._super(...arguments);
 
-    let table = new Table(this.get('columns'), this.get('model'), { enableSync: true });
+    let table = new Table(this.get('columns'), this.get('sortedModel'), { enableSync: false });
     let sortColumn = table.get('allColumns').findBy('valuePath', this.get('sort'));
 
     // Setup initial sort column
@@ -42,6 +42,11 @@ export default Mixin.create({
 
     this.set('table', table);
   },
+
+  updateTable: Ember.observer('sortedModel', function() {
+      this.get('table').setRows(this.get('sortedModel'));
+    }),
+
 
   actions: {
     onRowClicked(row) {
@@ -56,8 +61,6 @@ export default Mixin.create({
           dir: column.ascending ? 'asc' : 'desc',
           sort: column.get('valuePath')
         });
-
-        this.get('table').setRows(this.get('sortedModel'));
       }
     }
   }
