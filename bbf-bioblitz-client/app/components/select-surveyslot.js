@@ -13,6 +13,18 @@ export default Ember.Component.extend({
     return surveyslot.get('survey.name') + ' at ' + surveyslot.get('location.name') + ' on ' + surveyslot.get('timeslot.name');
   },
 
+  updateSurveySlots() {
+    return this.findAvailableSurveyslots()
+      .then( (ps) => {
+        this.set('availableSurveyslots', ps);
+      } );
+  },
+
+  didReceiveAttrs() {
+    this._super(...arguments);
+    return this.updateSurveySlots();
+  },
+
   findAvailableSurveyslots() {
     let store = this.get('store');
     function excludeExisting( [ rs, existing ] ) {
@@ -29,18 +41,14 @@ export default Ember.Component.extend({
         .then( excludeExisting );
   },
 
-  init() {
-    this._super(...arguments);
-    this.findAvailableSurveyslots()
-      .then( (ps) => this.set('availableSurveyslots', ps) );
-  },
 
   actions: {
     setSelection( s ) {
       this.set('selectedSurveyslot', s );
     },
     expand() {
-      this.set('showing', true);
+      this.updateSurveySlots()
+        .then( () => this.set('showing', true) );
     },
     collapse() {
       this.set('showing', false);
@@ -50,7 +58,14 @@ export default Ember.Component.extend({
           person: this.get('person'),
           surveyslot: this.get('selectedSurveyslot')
       }).save()
-        .then( () => this.set('showing', false) );
+        .then( () => this.set('showing', false) )
+        .catch(
+            () => {
+              store.unloadRecord(participant);
+              this.get('dialog').alert('assign-participant-error');
+            }
+
+          );
     }
   }
 });
