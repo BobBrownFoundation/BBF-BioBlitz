@@ -8,10 +8,5 @@ export default Ember.Route.extend({
         this.get('store').findAll( 'timeslot', { reload: true } ),
         this.get('store').findAll( 'survey', { reload: true } )
       ]).then( ([ model ]) => model );
-  },
-  actions: {
-    removePerson(person) {
-      alert('hello ' + person.name);
-    }
   }
 });

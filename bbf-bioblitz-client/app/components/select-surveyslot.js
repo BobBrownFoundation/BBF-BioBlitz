@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   person: null,
   availableSurveyslots: [],
   selectedSurveyslot: null,
+  assignDisabled: Ember.computed.empty('selectedSurveyslot'),
   showing: false,
 
   surveySlotLabel( surveyslot ) {

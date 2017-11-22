@@ -7,7 +7,7 @@
   orderBy='name'
   onSelected=(action 'setSelection')
 }}
-<button {{action 'selectParticipant'}}>Assign Participant</button>
+<button {{action 'selectParticipant'}} disabled={{assignDisabled}}>Assign Participant</button>
 <button {{action 'collapse'}}>Cancel</button>
 {{else}}
 <div class='plus'{{action 'expand'}}>+</div>

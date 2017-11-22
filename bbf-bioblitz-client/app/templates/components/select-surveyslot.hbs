@@ -7,7 +7,7 @@
   orderBy='survey.name'
   onSelected=(action 'setSelection')
 }}
-<button {{action 'selectSurveyslot'}}>Assign Survey</button>
+<button {{action 'selectSurveyslot'}} disabled={{assignDisabled}}>Assign Survey</button>
 <button {{action 'collapse'}}>Cancel</button>
 {{else}}
 <div class='plus'{{action 'expand'}}>+</div>

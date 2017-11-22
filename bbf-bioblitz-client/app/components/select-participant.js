@@ -6,6 +6,7 @@ export default Ember.Component.extend({
   surveyslot: null, // the survey slot to select from
   availableParticipants: [],
   selectedParticipant: null,
+  assignDisabled: Ember.computed.empty('selectedParticipant'),
   showing: false,
 
 
@@ -47,8 +48,11 @@ export default Ember.Component.extend({
           person: this.get('selectedParticipant'),
           surveyslot: this.get('surveyslot')
       }).save()
-        .then( () => this.set('showing', false) );
-
+        .then( () => {
+            if (!this.get('isDestroyed')) {
+              this.set('showing', false);
+            }
+          } );
     }
   }
 });
