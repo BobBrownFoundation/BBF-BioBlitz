@@ -44,7 +44,9 @@ export default Ember.Component.extend({
       this.set('showing', false);
     },
     selectParticipant() {
-      this.get('store').createRecord('participant', {
+      let store = this.get('store');
+
+      store.createRecord('participant', {
           person: this.get('selectedParticipant'),
           surveyslot: this.get('surveyslot')
       }).save()
@@ -52,7 +54,10 @@ export default Ember.Component.extend({
             if (!this.get('isDestroyed')) {
               this.set('showing', false);
             }
-          } );
+          } )
+        .catch(
+            () => alert('Unable to assign participant - check that this time isn\'t already filled')
+          );
     }
   }
 });

@@ -8,6 +8,8 @@ export function up(schema) {
     table.integer('surveyslot_id')
         .index();
 
+    table.unique(['person_id','surveyslot_id']);
+
     table.timestamps();
 
     table.index('created_at');
