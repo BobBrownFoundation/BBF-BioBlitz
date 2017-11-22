@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   store: Ember.inject.service(),
+  dialog: Ember.inject.service(),
   classNames: ['select-expand-button'],
   surveyslot: null, // the survey slot to select from
   availableParticipants: [],
@@ -26,10 +27,16 @@ export default Ember.Component.extend({
         .then( excludeExisting );
   },
 
-  init() {
+  updateParticipants() {
+    return this.findAvailableParticipants()
+      .then( (ps) => {
+        this.set('availableParticipants', ps);
+      } );
+  },
+
+  didReceiveAttrs() {
     this._super(...arguments);
-    this.findAvailableParticipants()
-      .then( (ps) => this.set('availableParticipants', ps) );
+    return this.updateParticipants();
   },
 
 
@@ -38,25 +45,30 @@ export default Ember.Component.extend({
       this.set('selectedParticipant', p );
     },
     expand() {
-      this.set('showing', true);
+      this.updateParticipants()
+        .then( () => this.set('showing', true) );
     },
     collapse() {
       this.set('showing', false);
     },
     selectParticipant() {
       let store = this.get('store');
-
-      store.createRecord('participant', {
+      let participant = store.createRecord('participant', {
           person: this.get('selectedParticipant'),
           surveyslot: this.get('surveyslot')
-      }).save()
+      });
+      participant.save()
         .then( () => {
             if (!this.get('isDestroyed')) {
               this.set('showing', false);
             }
           } )
         .catch(
-            () => alert('Unable to assign participant - check that this time isn\'t already filled')
+            () => {
+              store.unloadRecord(participant);
+              this.get('dialog').alert('assign-participant-error');
+            }
+
           );
     }
   }

@@ -12,7 +12,10 @@ export default DS.JSONAPIAdapter.extend({
           if ( typeof params.query.filter !== 'undefined' ) {
             attrs = params.query.filter;
             Object.keys(attrs)
-              .forEach( (key) => attrs[key] = attrs[key].replace(',','%2C') );
+              .forEach( (key) => {
+                if ( typeof attrs[key] === 'string' )
+                  attrs[key] = attrs[key].replace(',','%2C');
+              });
           }
           break;
       }
