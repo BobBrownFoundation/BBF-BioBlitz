@@ -2,15 +2,19 @@
 <header><h1>Bob Brown Foundation - BioBlitz Schedule</h1></header>
 <section>
   <h2>Menu</h2>
-  {{#link-to 'sites'}}Sites{{/link-to}}
-  {{#link-to 'roles'}}Roles{{/link-to}}
-  {{#link-to 'teams'}}Teams{{/link-to}}
-  {{#link-to 'surveys'}}Surveys{{/link-to}}
-  {{#link-to 'timeslots'}}Time Slots{{/link-to}}
+  {{#if session.isAdmin}}
+    {{#link-to 'sites'}}Sites{{/link-to}}
+    {{#link-to 'roles'}}Roles{{/link-to}}
+    {{#link-to 'teams'}}Teams{{/link-to}}
+    {{#link-to 'surveys'}}Surveys{{/link-to}}
+    {{#link-to 'timeslots'}}Time Slots{{/link-to}}
+  {{/if}}
   {{#link-to 'people'}}People{{/link-to}}
-  {{#link-to 'surveyslots'}}Survey Time Table{{/link-to}}
-  {{#link-to 'participants'}}Survey Participants{{/link-to}}
-  {{#link-to 'import'}}Import Data{{/link-to}}
+  {{#if session.isAdmin}}
+    {{#link-to 'surveyslots'}}Survey Time Table{{/link-to}}
+    {{#link-to 'participants'}}Survey Participants{{/link-to}}
+    {{#link-to 'import'}}Import Data{{/link-to}}
+  {{/if}}
 </section>
 <article>{{outlet}}</article>
 </div>

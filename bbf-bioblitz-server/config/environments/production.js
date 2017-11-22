@@ -21,6 +21,15 @@ export default {
   },
 
   logging: {
+    level: 'DEBUG',
+    format: 'text',
+    enabled: true,
+
+    filter: {
+      params: []
+    }
+  }
+/*  logging: {
     level: 'INFO',
     format: 'json',
     enabled: true,
@@ -28,5 +37,5 @@ export default {
     filter: {
       params: []
     }
-  }
+  }*/
 };

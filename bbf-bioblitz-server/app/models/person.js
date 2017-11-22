@@ -1,5 +1,5 @@
 import { Model } from 'lux-framework';
-
+import capitalize from '../utils/capitalize';
 class Person extends Model {
   static belongsTo = {
     team: {
@@ -15,6 +15,13 @@ class Person extends Model {
     participants: {
       model: 'participant',
       inverse: 'person'
+    }
+  };
+
+  static hooks = {
+    async beforeSave(person) {
+      person.firstName = capitalize( person.firstName );
+      person.lastName = capitalize( person.lastName );
     }
   };
 }
