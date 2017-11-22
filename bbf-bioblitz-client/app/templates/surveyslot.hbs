@@ -1,10 +1,13 @@
 <h1>Survey: {{model.survey.name}}</h1>
-<p>{{model.survey.description}}</p>
+Available Slots: {{model.availableSlots}}<br>
+Total Slots: {{model.numberOfParticipants}}
 <article>
 <h2>{{model.location.name}} {{model.timeslot.name}}</h2>
 {{#participant-person-table model=model.participants}}
 {{#if session.isAdmin}}
-  {{select-participant surveyslot=model}}
+  {{#if model.hasSlotsRemaining}}
+    {{select-participant surveyslot=model}}
+  {{/if}}
 {{/if}}
 {{/participant-person-table}}
 </article>

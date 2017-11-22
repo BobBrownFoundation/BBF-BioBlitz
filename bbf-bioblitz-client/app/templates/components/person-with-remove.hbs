@@ -1,4 +1,4 @@
 {{person-display row=row}}
-{{#if isAdmin}}
-<span class="remove" {{action 'removePerson'}}>-</span>
+{{#if session.isAdmin}}
+<span class="remove" {{action 'removeParticipant'}}>-</span>
 {{/if}}
