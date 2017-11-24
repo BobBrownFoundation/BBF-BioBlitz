@@ -8,10 +8,13 @@ export default DS.Model.extend({
   survey: DS.belongsTo('survey'),
   participants: DS.hasMany('participant'),
   numberOfParticipants: DS.attr('number'),
-  availableSlots: Ember.computed('numberOfParticipants', 'participants', function() {
+  availableSlots: Ember.computed('numberOfParticipants', 'assignedParticipants', function() {
     let numberOfParticipants = this.get('numberOfParticipants');
-    let assignedParticipants = this.get('participants.length');
+    let assignedParticipants = this.get('assignedParticipants');
     return numberOfParticipants - assignedParticipants;
+  }),
+  assignedParticipants: Ember.computed('participants', function() {
+    return this.get('participants.length');
   }),
   hasSlotsRemaining: Ember.computed('availableSlots', function() {
     return (this.get('availableSlots') > 0);

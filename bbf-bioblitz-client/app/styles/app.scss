@@ -103,6 +103,19 @@ li {
 
 }
 
+table.survey-slots-participant-list {
+  width: 80%;
+  border: solid thin black;
+  border-collapse: collapse;
+  margin-top: 1em;
+}
+
+table.survey-slots-participant-list td {
+  padding: 0.5em;
+  border: solid thin black;
+
+}
+
 div.file-upload {
   border: dashed 4px #5f8dd8;
   border-radius: 16px;

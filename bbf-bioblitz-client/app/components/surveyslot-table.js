@@ -18,6 +18,10 @@ export default Component.extend(BaseTable, {
     }, {
       label: 'Timeslot',
       valuePath: 'timeslot.name'
-    }];
+    },{
+      label: 'Filled Slots',
+      valuePath: 'assignedParticipants'
+    }
+    ];
   })
 });

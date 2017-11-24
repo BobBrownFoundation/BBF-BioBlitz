@@ -14,9 +14,9 @@ class PeopleController extends Controller {
       if ( filter && filter.name ) {
         let name = filter.name;
         delete filter.name;
-        let [ firstName, lastName ] = name.split(/\s+/);
+        let [ firstName, ...lastNames] = name.split(/\s+/);
         filter.firstName = firstName;
-        filter.lastName = lastName;
+        filter.lastName = lastNames.join(' ');
       }
     }
   ];

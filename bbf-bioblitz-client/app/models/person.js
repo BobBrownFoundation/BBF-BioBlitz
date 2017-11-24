@@ -12,9 +12,9 @@ export default DS.Model.extend({
       return `${this.get('firstName')} ${this.get('lastName')}`;
     },
     set(key, value) {
-      var [firstName, lastName] = value.split(/\s+/);
+      var [firstName, ...lastNames] = value.split(/\s+/);
       this.set('firstName', firstName);
-      this.set('lastName',  lastName);
+      this.set('lastName',  lastNames.join(' '));
       return value;
     }
   })

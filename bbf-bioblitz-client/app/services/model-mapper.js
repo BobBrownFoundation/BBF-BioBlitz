@@ -163,7 +163,8 @@ export default Ember.Service.extend({
                       query: field + 'Id',
                       queryValue: value.get('id'),
                       field: field,
-                      value: value
+                      value: value,
+                      chain: chain
                     };
                   });
               } else {
@@ -180,9 +181,15 @@ export default Ember.Service.extend({
               // prepare query hashes
               let props = {};
               let queryProps = {};
-              values.forEach( ({ query, queryValue, field, value }) => {
+
+              values.forEach( ({ query, queryValue, field, value, chain }) => {
+                if ( typeof queryValue === 'undefined' || queryValue === null ) {
+                  Ember.Logger.log('error getting chain: ', chain);
+                  //Ember.Logger.log(`Field ${query} is undefined`);
+                }
                 queryProps[query] = queryValue;
                 props[field] = value;
+
               });
               return lookUpByProperties( composedChain.model.modelName, queryProps )
                 .then( value =>{

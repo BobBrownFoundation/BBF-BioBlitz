@@ -19,6 +19,13 @@ Router.map(function() {
   this.route('survey', { path: '/survey/:survey_id'});
   this.route('surveyslot', { path: '/surveyslot/:surveyslot_id' } );
   this.route('person', { path: '/person/:person_id' } );
+
+  this.route('report', function() {
+    this.route('transport-report');
+    this.route('travel');
+    this.route('survey');
+  });
+  this.route('reports');
 });
 
 export default Router;

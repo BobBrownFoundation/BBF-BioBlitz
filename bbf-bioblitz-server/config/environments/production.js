@@ -1,6 +1,8 @@
 export default {
   server: {
     cors: {
+      //origin: 'https://bbf-bioblitz.herokuapp.com',
+      //origin: 'http://localhost:4200/'
       origin: '*',
       enabled: true,
 
@@ -29,13 +31,4 @@ export default {
       params: []
     }
   }
-/*  logging: {
-    level: 'INFO',
-    format: 'json',
-    enabled: true,
-
-    filter: {
-      params: []
-    }
-  }*/
 };
