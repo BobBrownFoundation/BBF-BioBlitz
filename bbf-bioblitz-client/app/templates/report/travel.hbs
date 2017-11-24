@@ -1,0 +1,13 @@
+<h1>{{report.title}} Travel Report</h1>
+{{#if report.doubleTimeSlots}}
+<h1>Morning:</h1>
+{{participant-person-report-table model=report.participantsMorning}}
+
+<h1>Afternoon:</h1>
+{{participant-person-report-table model=report.participantsAfternoon}}
+
+{{else}}
+
+{{participant-person-report-table model=report.participants}}
+
+{{/if}}

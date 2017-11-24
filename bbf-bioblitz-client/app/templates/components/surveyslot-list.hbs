@@ -1,0 +1,14 @@
+<h1>{{surveyslot-display surveyslot=surveyslot}}</h1>
+Number of places: {{surveyslot.numberOfParticipants}}
+<table class='survey-slots-participant-list'>
+{{#each slots as |participant index|}}
+  <tr>
+    <td>
+      {{#if participant}}
+        {{person-display person=participant.person}}
+      {{/if}}
+    </td>
+    <td>{{plusone index}}</td>
+  </tr>
+{{/each}}
+</table>

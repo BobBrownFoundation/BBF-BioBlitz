@@ -12,7 +12,7 @@ export default Component.extend(BaseTable, {
     return [{
       label: 'Name',
       valuePath: 'person.name',
-      cellComponent: 'person-display'
+      cellComponent: 'person-display-row'
     }, {
       label: 'Site',
       valuePath: 'surveyslot.location.name'

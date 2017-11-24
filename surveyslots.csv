@@ -1,31 +1,78 @@
-"Surveyslot:Survey:name", "Surveyslot:Timeslot:name", "Surveyslot:Location:name", "NumberOfParticipants"
-Birds with Nick Fitzgerald,Friday AM,River,16
-Plants with Greg Pitt,Friday AM,Forest,12
-Slimemoulds with Rob Pergl,Friday AM,Plains,12
-Freshwater Invertebrates with Todd Walsh,Friday PM,Coast,12
-Mosses and Lichens with Peter Gell,Friday PM,River,16
-Orchids with Richard Newport,Friday PM,Plains,12
-Fungi with Nick Fitzgerald,Friday NIGHT,Coast,12
-Insects with Greg Pitt,Friday NIGHT,Forest,12
-Birds and Mammals with Rob Pergl,Saturday DAWN,Plains,8
-Orchids & Frogs with Todd Walsh,Saturday DAWN,Coast,8
-Invertebrates with Peter Gell,Saturday AM,Forest,12
-Bryophytes with Richard Newport,Saturday AM,Plains,12
-Macro Photography Workshop with Nick Fitzgerald,Saturday AM,Plains,12
-Freshwater Crayfish with Greg Pitt,Saturday AM,Coast,12
-"Mammals, Spotlighting and Frogs with Rob Pergl",Saturday AM,Coast,8
-"Mammals, Scats & Traces & Pack down cameras with Todd Walsh",Saturday PM,Forest,12
-Art Installation with Peter Gell,Saturday PM,Plains,8
-Diatom algae with Richard Newport,Saturday PM,Coast,12
-Waterbugs with Rob Pergl,Saturday PM,Forest,12
-Birds and Mammals with Rob Pergl,Saturday NIGHT,Plains,12
-Orchids & Frogs with Todd Walsh,Saturday NIGHT,Coast,8
-Invertebrates with Peter Gell,Sunday DAWN,Plains,8
-Bryophytes with Richard Newport,Sunday AM,Coast,12
-Macro Photography Workshop with Nick Fitzgerald,Sunday AM,Forest,8
-Freshwater Crayfish with Greg Pitt,Sunday AM,Coast,12
-"Mammals, Spotlighting and Frogs with Rob Pergl",Sunday AM,Forest,12
-"Mammals, Scats & Traces & Pack down cameras with Todd Walsh",Sunday PM,Plains,8
-Art Installation with Peter Gell,Sunday PM,Coast,8
-Diatom algae with Richard Newport,Sunday PM,Forest,12
-"Mammals, Spotlighting and Frogs with Rob Pergl",Sunday PM,Plains,12
+Surveyslot:Survey:name,Surveyslot:Timeslot:name,Surveyslot:Location:name,NumberOfParticipants
+Fish with Greg Martin,Friday AM,Aquatic,7
+Invertebrates with Stuart Rose,Friday AM,Aquatic,7
+None of these,Friday AM,Aquatic,160
+Birds with Sarah Lloyd,Friday AM,Coast,12
+Bryophytes with Paddy Dalton,Friday AM,Coast,14
+Carnivore trapping with Channing Hughes,Friday AM,Coast,10
+Invertebrates with Chris Carr,Friday AM,Coast,12
+Orchids with Janine Cranney,Friday AM,Coast,14
+Plants with John Davies,Friday AM,Coast,14
+None of these,Friday AM,Coast,160
+Frogs and owls with Shannon Troy,Friday EVE,Forest,8
+Invertebrates with Peter McQuillan & Chris Carr,Friday EVE,Forest,12
+Spotlighting with Seb Comte,Friday EVE,Forest,8
+None of these,Friday EVE,Forest,160
+Fish with Greg Martin,Friday PM,Aquatic,7
+Invertebrates with Stuart Rose,Friday PM,Aquatic,7
+Bryophytes with Paddy Dalton,Friday PM,Coast,14
+Invertebrates with Chris Carr,Friday PM,Coast,12
+Mammals with Sebastien Comte,Friday PM,Coast,12
+Orchids with Janine Cranney,Friday PM,Coast,14
+Plants with John Davies,Friday PM,Coast,14
+None of these,Friday PM,Coast,160
+Fish with Greg Martin,Saturday AM,Aquatic,7
+Giant freshwater crayfish with Todd Walsh,Saturday AM,Aquatic,7
+Invertebrates with Stuart Rose,Saturday AM,Aquatic,7
+None of these,Saturday AM,Aquatic,160
+Birds with Cat Hamilton,Saturday AM,Coast,8
+Cultural with Theresa Sainty,Saturday AM,Coast,8
+Frogs with Shannon Troy,Saturday AM,Coast,8
+Invertebrates with Peter McQuillan,Saturday AM,Coast,8
+Orchids with Spikey Riddoch,Saturday AM,Coast,8
+Plants with Rob Pergl,Saturday AM,Coast,8
+None of these,Saturday AM,Coast,160
+Bryophytes and ferns with Paddy Dalton,Saturday AM,Forest,14
+Carnivore trapping with Channing Hughes,Saturday AM,Forest,10
+Fungi and slime moulds with Sarah Lloyd,Saturday AM,Forest,10
+Fungi collection with Julie Fielder,Saturday AM,Forest,14
+Invertebrates with Chris Carr,Saturday AM,Forest,10
+Plants with Nick Fitzgerald,Saturday AM,Forest,10
+None of these,Saturday AM,Forest,160
+Birds with Cat Hamilton,Saturday DAWN,Forest,12
+None of these,Saturday DAWN,Forest,160
+Frogs and owls with Shannon Troy,Saturday EVE,Plain,8
+Spotlighting with Seb Comte & Helen Robertson,Saturday EVE,Plain,8
+None of these,Saturday EVE,Plain,160
+Fish with Greg Martin,Saturday PM,Aquatic,7
+Giant freshwater crayfish with Todd Walsh,Saturday PM,Aquatic,7
+Invertebrates with Stuart Rose,Saturday PM,Aquatic,7
+None of these,Saturday PM,Aquatic,160
+Birds with Cat Hamilton,Saturday PM,Coast,8
+Cultural with Theresa Sainty,Saturday PM,Coast,8
+Frogs with Shannon Troy,Saturday PM,Coast,8
+Invertebrates with Peter McQuillan,Saturday PM,Coast,8
+Orchids with Spikey Riddoch,Saturday PM,Coast,8
+Plants with Rob Pergl,Saturday PM,Coast,8
+None of these,Saturday PM,Coast,160
+Bryophytes and ferns with Paddy Dalton,Saturday PM,Forest,14
+Fungi ID (Back at Base Camp) with Julie Fielder,Saturday PM,Forest,2
+Invertebrates with Chris Carr,Saturday PM,Forest,10
+Mammals with Sebastien Comte,Saturday PM,Forest,10
+Plants with Nick Fitzgerald,Saturday PM,Forest,14
+None of these,Saturday PM,Forest,160
+Fish with Greg Martin,Sunday AM,Aquatic,7
+Giant freshwater crayfish with Todd Walsh,Sunday AM,Aquatic,7
+Invertebrates with Stuart Rose,Sunday AM,Aquatic,7
+None of these,Sunday AM,Aquatic,160
+Canopy demonstration with Steven Pearce,Sunday AM,Forest,10
+Carnivore trapping with Channing Hughes,Sunday AM,Forest,10
+Plants with Rob Pergl,Sunday AM,Forest,10
+None of these,Sunday AM,Forest,160
+Birds with Cat Hamilton,Sunday AM,Plain,14
+Bryophytes and ferns with Paddy Dalton,Sunday AM,Plain,14
+Invertebrates with Peter McQuillan,Sunday AM,Plain,10
+Mammal traces with Helen Robertson,Sunday AM,Plain,14
+Orchids with Janine Cranney,Sunday AM,Plain,12
+Plants with John Davies,Sunday AM,Plain,14
+None of these,Sunday AM,Plain,160

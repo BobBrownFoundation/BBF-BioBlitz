@@ -54,14 +54,16 @@ export default Ember.Component.extend({
       this.set('showing', false);
     },
     selectSurveyslot() {
-      this.get('store').createRecord('participant', {
+      let participant = this.get('store').createRecord('participant', {
           person: this.get('person'),
           surveyslot: this.get('selectedSurveyslot')
-      }).save()
+      });
+      
+      participant.save()
         .then( () => this.set('showing', false) )
         .catch(
             () => {
-              store.unloadRecord(participant);
+              this.get('store').unloadRecord(participant);
               this.get('dialog').alert('assign-participant-error');
             }
 
