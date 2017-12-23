@@ -1,6 +1,8 @@
 <h1>{{report.title}} Survey Report</h1>
-{{#each report.surveyslots as |surveyslot|}}
+{{#each report.surveyslotsBySite as |surveyslot|}}
   {{#if (not-equals surveyslot.survey.name 'None of these')}}
-    {{surveyslot-list surveyslot=surveyslot}}
+
+      {{surveyslot-list surveyslot=surveyslot}}
+  
   {{/if}}
 {{/each}}

@@ -8,7 +8,8 @@ export default Ember.Route.extend({
         this.get('store').findAll( 'timeslot', { reload: true } ),
         this.get('store').findAll( 'survey', { reload: true } ),
         this.get('store').findAll( 'person', { reload: true } ),
-        this.get('store').findAll( 'team', { reload: true } )
+        this.get('store').findAll( 'team', { reload: true } ),
+        this.get('store').findAll( 'surveyslot', { reload: true } )
       ]).then( ([model]) => model );
   },
   setupController(controller,model) {

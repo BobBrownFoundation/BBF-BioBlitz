@@ -7,6 +7,12 @@ export default DS.Model.extend({
   team: DS.belongsTo('team'),
   /*capabilities: DS.hasMany('role'),*/
   participatingIn: DS.hasMany('participant'),
+  occupySlot: Ember.computed( 'team.name',function() {
+    let team = this.get('team.name');
+    return ( team !== "Survey Leader" )
+       && ( team !== "Survey Assistant" )
+       && ( team !== "Organiser" );
+  }),
   name: Ember.computed('firstName', 'lastName', {
     get() {
       return `${this.get('firstName')} ${this.get('lastName')}`;

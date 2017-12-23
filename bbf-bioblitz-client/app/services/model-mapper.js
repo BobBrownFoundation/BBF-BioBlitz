@@ -20,8 +20,10 @@ export default Ember.Service.extend({
       function checkSingleModel( models ) {
         if (models.get('length') == 0 )
           return null;
-        if (models.get('length') > 1 )
-          throw new Error('Ambiguous model');
+        if (models.get('length') > 1 ) {
+            Ember.Logger.log('duplicate models: ', models);
+          return null;
+        }
         return models.get('firstObject');
       }
 

@@ -46,7 +46,7 @@ var transformer = transform(function(record, callback){
     }
 
     switch ( record['SAT_loc_choice'] ) {
-      case 'S_C':
+      case 'Sa_C':
         insert( record['name'], 'Coast', 'Saturday AM', record['SAT_AM_Coast'] );
         insert( record['name'], 'Coast', 'Saturday PM', record['SAT_PM_Coast'] );
         break;
@@ -56,7 +56,7 @@ var transformer = transform(function(record, callback){
         insert( record['name'], 'Aquatic', 'Saturday PM', record['SAT_PM_Aquatic'] );
         break;
 
-      case 'S_F':
+      case 'Sa_F':
         insert( record['name'], 'Forest', 'Saturday AM', record['SAT_AM_Forest'] );
         insert( record['name'], 'Forest', 'Saturday PM', record['SAT_PM_Forest'] );
         break;
@@ -80,8 +80,8 @@ var transformer = transform(function(record, callback){
         break;
 
       case 'Su_Aq':
-        insert( record['name'], 'Aquatic', 'Sunday AM', record['SUN_AM_Forest'] );
-        insert( record['name'], 'Aquatic', 'Sunday PM', record['SUN_PM_Forest'] );
+        insert( record['name'], 'Aquatic', 'Sunday AM', record['SUN_AM_Aquatic'] );
+        insert( record['name'], 'Aquatic', 'Sunday PM', record['SUN_PM_Aquatic'] );
         break;
     }
     callback(null, ...records);

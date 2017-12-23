@@ -1,13 +1,4 @@
-<h1>{{report.title}} Travel Report</h1>
-{{#if report.doubleTimeSlots}}
-<h1>Morning:</h1>
-{{participant-person-report-table model=report.participantsMorning}}
 
-<h1>Afternoon:</h1>
-{{participant-person-report-table model=report.participantsAfternoon}}
-
-{{else}}
-
-{{participant-person-report-table model=report.participants}}
-
-{{/if}}
+{{#each report.participants as |participant|}}
+  {{participant.person.name}},{{participant.surveyslot.location.name}},{{participant.surveyslot.timeslot.name}}
+{{/each}}

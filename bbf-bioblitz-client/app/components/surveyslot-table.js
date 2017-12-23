@@ -17,10 +17,11 @@ export default Component.extend(BaseTable, {
       valuePath: 'location.name'
     }, {
       label: 'Timeslot',
-      valuePath: 'timeslot.name'
+      valuePath: 'timeslot.name',
+      sortValuePath: 'timeslot.start'
     },{
-      label: 'Filled Slots',
-      valuePath: 'assignedParticipants'
+      label: 'Avaiable Slots',
+      valuePath: 'availableSlots'
     }
     ];
   })

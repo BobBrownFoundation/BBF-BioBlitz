@@ -13,11 +13,18 @@ export default Component.extend(BaseTable, {
     return [{
       label: 'Participant',
       valuePath: 'person.name',
-      cellComponent: 'person-display-row'
+      cellComponent: 'person-display-row',
+      width: '14em',
     },{
       label: 'Survey',
       valuePath: 'surveyslot.survey.name',
       cellComponent: 'surveyslot-display-row'
+    },{
+      label: 'Leaving Basecamp',
+      width: '4em',
+    },{
+      label: 'Leaving Site',
+      width: '4em'
     }];
   })
 });

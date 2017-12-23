@@ -20,6 +20,22 @@ li {
   padding: 0.3em;
 }
 
+/* Hide the header and menu when printed */
+@media print {
+  .page-container {
+    grid-template-rows: 0px  !important;
+    grid-template-columns: 0px 1fr !important;
+  }
+
+  .lt-sort-icon {
+    display:none;
+  }
+
+  /*h1 {
+    break-before: always !important;
+  }*/
+}
+
 .page-container {
   display: grid;
   grid-template-rows: 5em auto;
@@ -115,6 +131,12 @@ table.survey-slots-participant-list td {
   border: solid thin black;
 
 }
+
+table.survey-slots-participant-list td:last-child {
+  text-align: center;
+}
+
+
 
 div.file-upload {
   border: dashed 4px #5f8dd8;

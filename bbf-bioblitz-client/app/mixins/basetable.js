@@ -33,7 +33,9 @@ export default Mixin.create({
     this._super(...arguments);
 
     let table = new Table(this.get('columns'), this.get('sortedModel'), { enableSync: false });
-    let sortColumn = table.get('allColumns').findBy('valuePath', this.get('sort'));
+    let sort = this.get('sort');
+    let allColumns = table.get('allColumns');
+    let sortColumn = allColumns.findBy('valuePath', sort );
 
     // Setup initial sort column
     if (sortColumn) {

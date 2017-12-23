@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  queryParams: ['admin'],
-  admin: Ember.computed.alias('session.admin')
+  queryParams: ['admin','reportMode'],
+  admin: Ember.computed.alias('session.admin'),
+  reportMode: null
 });
