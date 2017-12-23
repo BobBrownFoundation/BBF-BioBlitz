@@ -2,6 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Component.extend({
   store: Ember.inject.service(),
+  dialog: Ember.inject.service(),
   classNames: ['select-expand-button'],
   person: null,
   availableSurveyslots: [],
@@ -54,11 +55,17 @@ export default Ember.Component.extend({
       this.set('showing', false);
     },
     selectSurveyslot() {
+      let person = this.get('person');
+      let surveyslot = this.get('selectedSurveyslot');
+      if ( !surveyslot.get('hasSlotsRemaining') && person.get('occupySlot')) {
+        this.get('dialog').alert('assign-participant-error');
+        return;
+      }
       let participant = this.get('store').createRecord('participant', {
-          person: this.get('person'),
-          surveyslot: this.get('selectedSurveyslot')
+          person: person,
+          surveyslot: surveyslot
       });
-      
+
       participant.save()
         .then( () => this.set('showing', false) )
         .catch(

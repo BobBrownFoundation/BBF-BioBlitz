@@ -9,12 +9,22 @@ export default Ember.Controller.extend({
   day: null,
   surveyslots: [],
 
+  surveyslotsBySite: Ember.computed( 'surveyslots', function() {
+    let surveyslots = this.get('surveyslots');
+    /*return surveyslots.sort(  (a,b) => {
+      return a.get('location.name').localeCompare(b.get('location.name'));
+    });*/
+    return surveyslots.sortBy( 'timeslot.start','location.name','survey.name'  );
+  }),
+
   participants: Ember.computed('surveyslots', function() {
     let surveyslots = this.get('surveyslots');
-    let particpantss = surveyslots
-      .map( ss => ss.get('participants') );
-      // TODO: extract utility function
-    return particpantss.reduce( (acc,p) => acc.concat(p.toArray()), [] )
+    let participants = surveyslots
+      .map( ss => ss.get('participants') )
+      .reduce( (acc,p) => acc.concat(p.toArray()), [] )
+      .sortBy(  'surveyslot.location.name', 'person.name' );
+    return participants.reject( (p) => p.get('surveyslot.survey.name') === 'None of these' );
+
   }),
 
   participantsMorning: Ember.computed('participants', function() {
@@ -67,9 +77,19 @@ export default Ember.Controller.extend({
     return timeslots;
   }),
 
+
+
   surveyslotsPromise: Ember.computed( 'timeslots', function(){
     let timeslots = this.get('timeslots');
     let store = this.get('store');
+
+    function concatEmberArrays( arrays ) {
+      let res = [];
+      arrays.forEach( a => {
+        a.forEach( i => res.push(i) );
+      });
+      return res;
+    }
 
     function mapQueryModel( model, field, array ) {
       return Ember.RSVP.Promise.all(
@@ -85,6 +105,6 @@ export default Ember.Controller.extend({
             .query( 'timeslot', { filter: { name: timeslot } } )
             .then( (timeslots) => mapQueryModel( 'surveyslot', 'timeslotId', timeslots ) )
           )
-        ).then( (surveyslotss) => surveyslotss.reduce( (acc,surveyslots) => acc.concat(surveyslots.toArray()), [] ) );
+        ).then( (surveyslotss) => concatEmberArrays(surveyslotss) );
 })
 });

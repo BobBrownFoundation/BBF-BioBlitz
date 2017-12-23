@@ -53,9 +53,17 @@ export default Ember.Component.extend({
     },
     selectParticipant() {
       let store = this.get('store');
+      let person = this.get('selectedParticipant');
+      let surveyslot = this.get('surveyslot');
+      if ( !surveyslot.get('hasSlotsRemaining')
+        && person.get('occupySlot') ) {
+          this.get('dialog').alert('assign-participant-error');
+          return;
+      }
+
       let participant = store.createRecord('participant', {
-          person: this.get('selectedParticipant'),
-          surveyslot: this.get('surveyslot')
+          person: person,
+          surveyslot: surveyslot
       });
       participant.save()
         .then( () => {

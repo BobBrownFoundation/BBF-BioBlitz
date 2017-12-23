@@ -34,7 +34,8 @@ module.exports = function(environment) {
      ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.APP.host = 'https://bbf-bioblitz-backend.herokuapp.com';
+    //ENV.APP.host = 'https://bbf-bioblitz-backend.herokuapp.com';
+    ENV.APP.host = 'http://192.168.6.236:4000'
   }
 
   if (environment === 'test') {
@@ -51,6 +52,7 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.APP.host = 'https://bbf-bioblitz-backend.herokuapp.com';
+    //ENV.APP.host = 'http://192.168.6.236:4000'
   }
 
   return ENV;

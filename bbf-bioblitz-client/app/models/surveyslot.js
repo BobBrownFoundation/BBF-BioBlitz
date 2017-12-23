@@ -13,8 +13,11 @@ export default DS.Model.extend({
     let assignedParticipants = this.get('assignedParticipants');
     return numberOfParticipants - assignedParticipants;
   }),
+
   assignedParticipants: Ember.computed('participants', function() {
-    return this.get('participants.length');
+    let participants = this.get('participants').filter(
+     (p) => p.get('person.occupySlot') );
+    return participants.get('length');
   }),
   hasSlotsRemaining: Ember.computed('availableSlots', function() {
     return (this.get('availableSlots') > 0);

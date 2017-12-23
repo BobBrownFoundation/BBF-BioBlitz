@@ -18,6 +18,9 @@ export default Component.extend(BaseTable, {
       label: 'Team',
       valuePath: 'team.name',
       cellComponent: 'team-display'
+    }, {
+      label: 'Assigned Surveys',
+      valuePath: 'participatingIn.length'
     }];
   })
 });

@@ -23,7 +23,8 @@ export default Component.extend(BaseTable, {
     },
      {
       label: 'Time Slot',
-      valuePath: 'surveyslot.timeslot.name'
+      valuePath: 'surveyslot.timeslot.name',
+      sortValuePath: 'surveyslot.timeslot.start'
     }];
   })
 });
